@@ -1,0 +1,23 @@
+.container_card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+    
+.container_card > div {
+    flex: 0 1 calc(25% - 30px);
+    margin-bottom: 16px;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 767px) {
+    .container_card > div {
+        flex: 0 1 calc(50% - 30px);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container_card > div {
+        flex: 0 1 calc(33.33% - 30px);
+    }
+}
