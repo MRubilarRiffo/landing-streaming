@@ -1,8 +1,11 @@
-const { Product, License } = require('../../db');
+const { Product, License, Review } = require('../../db');
 
 const getProducts_h = async () => {
     const products = await Product.findAll({
-        include: License,
+        include: [
+            License,
+            Review
+        ],
         // where: where,
         // order: sortOrder === 'random' ? Sequelize.literal('random()') : [['id', order]],
         // limit: limit,

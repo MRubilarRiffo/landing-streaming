@@ -27,5 +27,13 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
+        averageRating: {
+            type: DataTypes.FLOAT,
+            defaultValue: 0,
+            validate: {
+                min: 0,
+                max: 5,
+            },
+        },
     });
 };

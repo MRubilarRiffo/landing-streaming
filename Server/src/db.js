@@ -28,11 +28,14 @@ fs.readdirSync(path.join(__dirname, '/models'))
 	let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 	sequelize.models = Object.fromEntries(capsEntries);
 	
-	const { Product, License } = sequelize.models;
+	const { Product, License, Review } = sequelize.models;
 
 	//Relaciones aquí
-	License.belongsTo(Product, { foreignKey: 'productId' });
-	Product.hasMany(License, { foreignKey: 'productId' });
+	License.belongsTo(Product);
+	Product.hasMany(License);
+
+	Review.belongsTo(Product);
+	Product.hasMany(Review);
 
 module.exports = {
 	...sequelize.models,
