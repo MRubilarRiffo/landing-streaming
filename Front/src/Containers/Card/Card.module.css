@@ -1,0 +1,86 @@
+.card {
+    height: 350px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.card:hover {
+    background-color: #242424;
+    border: 1px solid #A8741A;
+    box-shadow: 0 0 100px #000000;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.containerImg {
+    width: 100%;
+    overflow: hidden;
+}
+
+.containerImg img {
+    display: flex;
+    width: 100%;
+    height: auto;
+}
+
+.info {
+    margin: 15px 10px 15px 10px;
+    flex-grow: 1;
+}
+
+.info h3 {
+    font-size: 1em;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.props_product {
+    background-color: aliceblue;
+    height: 100px;
+}
+
+.info div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.info div span:first-child {
+    color: #A8741A;
+    font-weight: 500;
+    font-size: 1em;
+}
+
+.info div span:nth-child(2) {
+    color: #a8a8a8;
+    font-size: 0.9em;
+    text-decoration: line-through;
+}
+
+.info p {
+    font-size: 0.8em;
+    color: #dddddd;
+}
+
+@media (max-width: 767px) {
+    .info {
+        margin: 10px 5px 5px 5px;
+        height: 150px;
+    }
+
+    .card {
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .card {
+        height: auto;
+    }
+}

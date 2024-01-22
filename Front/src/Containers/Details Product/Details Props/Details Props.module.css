@@ -1,0 +1,132 @@
+.containerDetails {
+    color: black;
+    text-align: left;
+    width: 55%;
+}
+
+.containerDetails h3 {
+    color: #a8741a;
+    font-size: 1.8em;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+    margin-right: 50px;
+}
+
+.containerPay {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.containerInput {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+}
+
+.containerInput button {
+    position: absolute;
+    background-color: transparent;
+    color: #000000;
+    font-weight: 500;
+    border: none;
+    font-size: 20px;
+    transition: 0.5s color;
+}
+
+.containerInput button:hover {
+    color: #a8741a;
+    cursor: pointer;
+}
+
+.containerInput button:first-child {
+    left: 0;
+}
+
+.containerInput button:nth-child(2) {
+    right: 0;
+}
+
+.containerPay input {
+    width: 70px;
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #a8a8a8;
+    color: #000000;
+    font-size: 15px;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
+.containerPay input::-webkit-inner-spin-button, 
+.containerPay input::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.containerPrices {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 15px;
+    margin-block-end: 15px;
+}
+
+.containerPrices span:first-child {
+    color: #A8741A;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.containerPrices span:nth-child(2) {
+    color: #a8a8a8;
+    font-size: 1em;
+    text-decoration: line-through;
+}
+
+.buttonPay {
+    width: 250px;
+    background-color: #a8741a;
+    border: 0px;
+    font-weight: bolder;
+    transition: 0.5s background-color;
+}
+
+.buttonPay:hover {
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.tablePrices {
+    display: flex;
+    flex-direction: column;
+}
+
+.containerDetails hr {
+    width: 100%;
+    border: 1px solid #A8741A;
+}
+
+@media (max-width: 767px) {
+    .containerDetails {
+        width: 100%;
+    }
+
+    .containerDetails h3 {
+        margin-right: 0px;
+    }
+
+    .buttonPay {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .buttonPay {
+        width: 100%;
+    }
+}

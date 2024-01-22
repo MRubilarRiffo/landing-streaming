@@ -1,0 +1,37 @@
+.buttonClose {
+    display: flex;
+    justify-content: center;
+    background-color: #000;
+    border: 1px solid #A8741A;
+    font-size: 20px;
+    width: 50px;
+    height: 30px;
+    color: #fff;
+    right: 0px;
+    top: -35px;
+    position: absolute;
+}
+
+.buttonClose:hover {
+    cursor: pointer;
+    background-color: #CA1111;
+}
+
+@media (max-width: 767px) {
+    .buttonClose {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+    }
+    .containerDetails {
+        width: 100%;
+    }
+
+    .containerDetails h3 {
+        margin-right: 0px;
+    }
+
+    .buttonPay {
+        width: 100%;
+    }
+}

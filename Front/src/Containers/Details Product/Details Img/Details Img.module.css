@@ -1,0 +1,13 @@
+.containerImg {
+    width: 45%;
+}
+
+.containerImg img {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .containerImg {
+        width: 100%;
+    }
+}
