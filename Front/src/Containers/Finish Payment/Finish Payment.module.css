@@ -1,0 +1,11 @@
+.finishPayment {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    background-color: white;
+    padding: 30px;
+}
+
+.finishPayment > h1 {
+    color: black;
+}

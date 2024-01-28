@@ -14,6 +14,7 @@ conn.sync({ force: true })
             price: 5490,
             priceOffert: 2490,
             slug: name.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-'),
+            immediateDelivery: true
         });
 
         await conn.models.License.create({

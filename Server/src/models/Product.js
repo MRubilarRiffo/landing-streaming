@@ -35,5 +35,10 @@ module.exports = (sequelize) => {
                 max: 5,
             },
         },
+        immediateDelivery: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+            allowNull: false,
+        }
     });
 };
