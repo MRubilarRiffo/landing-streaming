@@ -1,9 +1,6 @@
 import { initMercadoPago, CardPayment  } from '@mercadopago/sdk-react';
-import { memo } from 'react';
 
 initMercadoPago('TEST-ac1913b4-0a4c-4835-8a98-63c7565c0f6a');
-
-const Memo_CardPayment = memo(CardPayment);
 
 const Mercado_Pago = ({ userData }) => {
     const initialization = {
@@ -57,7 +54,7 @@ const Mercado_Pago = ({ userData }) => {
     };
   
     return (
-        <Memo_CardPayment
+        <CardPayment
             initialization={initialization}
             onSubmit={onSubmit}
             onReady={onReady}

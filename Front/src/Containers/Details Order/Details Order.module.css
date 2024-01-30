@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1.7rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.148);
+    border-radius: 3px;
+}
+
+.container h3 {
+    color: black;
+    text-align: left;
+}
+
+.container h4 {
+    color: black;
+    text-align: left;
+}
+
+.container p {
+    color: black;
+    text-align: left;
+}
+
+.containerTitles {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

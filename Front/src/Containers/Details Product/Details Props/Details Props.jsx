@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
 import { format_Price } from '../../../Functions/Format Price';
 import { getRandomNumber } from '../../../Functions/Random Number';
 
-const Details_Props = ({ name, category, price, regularPrice, priceBulk, setModePay }) => {
+const Details_Props = ({ name, category, price, regularPrice, priceBulk }) => {
     const [quantity, setQuantity] = useState(1);
 
     const handleChangeQuantity = ({ target: { value } }) => {
@@ -38,6 +39,14 @@ const Details_Props = ({ name, category, price, regularPrice, priceBulk, setMode
 
         return () => clearInterval(intervalId);
     }, []);
+
+    const navigate = useNavigate();
+
+    const handleFinishPayment = () => {
+        navigate('/finalizar-pago', {
+            state: { quantity: quantity, price: variablePrice || price, name: name }
+        });
+    };
 
     const renderTableBulkPrices = () => {
         return (
@@ -92,7 +101,7 @@ const Details_Props = ({ name, category, price, regularPrice, priceBulk, setMode
                 </div>
                 <button
                     className={buttonPay}
-                    onClick={() => setModePay(true)}
+                    onClick={handleFinishPayment}
                     >
                     COMPRAR AHORA
                 </button>

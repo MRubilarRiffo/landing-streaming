@@ -1,0 +1,46 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1.7rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.148);
+    border-radius: 3px;
+}
+
+.form h3 {
+    color: black;
+    text-align: left;
+}
+
+.form label {
+    color: black;
+    text-align: left;
+    font-size: 13px;
+}
+
+.form input {
+    all: initial;
+    border: 1px solid rgba(0, 0, 0, 0.148);
+    border-radius: 3px;
+    height: 30px;
+    padding: 5px 10px;
+}
+
+.form input:focus {
+    border-color: #A8741A;
+}
+
+.form input:hover {
+    border-color: #A8741A;
+}
+
+.nameAndLastname {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.prop {
+    display: flex;
+    flex-direction: column;
+}

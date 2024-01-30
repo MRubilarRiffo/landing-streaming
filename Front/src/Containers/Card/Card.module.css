@@ -33,7 +33,7 @@
 }
 
 .info h3 {
-    font-size: 1em;
+    font-size: 0.9em;
     margin-bottom: 5px;
     color: #fff;
 }
@@ -71,7 +71,7 @@
 @media (max-width: 767px) {
     .info {
         margin: 10px 5px 5px 5px;
-        height: 150px;
+        height: 110px;
     }
 
     .card {

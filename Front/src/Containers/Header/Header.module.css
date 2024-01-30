@@ -1,0 +1,20 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menuContainer p {
+    cursor: pointer;
+}
+
+.menuContainer p:hover {
+    color: #A8741A;
+}
+
+.menuContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}

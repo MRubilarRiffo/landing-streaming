@@ -1,11 +1,45 @@
 .finishPayment {
     display: flex;
     flex-direction: column;
-    width: 500px;
     background-color: white;
-    padding: 30px;
+    padding: 2rem;
+    width: 100%;
+    border: 1px solid #A8741A;
+    gap: 20px;
 }
 
 .finishPayment > h1 {
     color: black;
+}
+
+.noInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1.7rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.148);
+    border-radius: 3px;
+    color: black;
+    text-align: left;
+    gap: 20px;
+}
+
+.buttonReturn {
+    background-color: #a8741a;
+    border: 0px;
+    font-weight: bolder;
+    transition: 0.5s background-color;
+    height: 40px;
+    width: 250px;
+}
+
+.buttonReturn:hover {
+    background-color: #000000;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .buttonReturn {
+        width: 100%;
+    }
 }
