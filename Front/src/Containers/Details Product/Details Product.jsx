@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { background, containerDetails } from './Details Product.module.css'
 import { Details_Img } from './Details Img/Details Img';
 import { Close_Button } from './Close Button/Close Button';
-import { Details_Props } from './Details Props/Details Props';
+import { Details_Props } from '../Details Props/Details Props';
 
 const Details_Product = ({ props, setOnDetails }) => {
     const containerDetailsRef = useRef(null);

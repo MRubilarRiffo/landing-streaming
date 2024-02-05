@@ -39,6 +39,16 @@ module.exports = (sequelize) => {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
             allowNull: false,
+        },
+        image: {
+            type: DataTypes.STRING,
+        },
+        category: {
+            type: DataTypes.STRING,
+        },
+        bulkPrice: {
+            type: DataTypes.JSON,
+            defaultValue: null
         }
     });
 };

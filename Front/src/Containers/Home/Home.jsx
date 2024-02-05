@@ -4,15 +4,15 @@ import { containerCard } from './Home.module.css';
 import { Loading } from '../Loading/Loading';
 
 const Home = () => {
-    const products = useSelector(state => state.products);
+    const { data } = useSelector(state => state.products);
 
     return (
         <>  
-        {products?.length > 0
+        {data?.length > 0
             ? <>
                 <h2>Productos</h2> 
                 <div className={containerCard}>
-                    {products?.map((props, index) =>
+                    {data?.map((props, index) =>
                         <Card key={`product-${index}`} props={props} />
                     )}
                 </div>

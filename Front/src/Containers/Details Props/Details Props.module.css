@@ -1,7 +1,6 @@
 .containerDetails {
-    color: black;
+    color: white;
     text-align: left;
-    width: 55%;
 }
 
 .containerDetails h3 {
@@ -30,9 +29,9 @@
     position: absolute;
     background-color: transparent;
     color: #000000;
-    font-weight: 500;
+    /* font-weight: 500; */
     border: none;
-    font-size: 20px;
+    font-size: 12px;
     transition: 0.5s color;
 }
 
@@ -109,6 +108,17 @@
 .containerDetails hr {
     width: 100%;
     border: 1px solid #A8741A;
+}
+
+.views {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.eye {
+    color: #A8741A;
+    font-size: 21px;
 }
 
 @media (max-width: 767px) {

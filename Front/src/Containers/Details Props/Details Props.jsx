@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
-import { format_Price } from '../../../Functions/Format Price';
-import { getRandomNumber } from '../../../Functions/Random Number';
+import { views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
+import { format_Price } from '../../Functions/Format Price';
+import { getRandomNumber } from '../../Functions/Random Number';
+import { FaRegEye, FaMinus, FaPlus } from "react-icons/fa";
 
-const Details_Props = ({ name, category, price, regularPrice, priceBulk }) => {
+const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice }) => {
     const [quantity, setQuantity] = useState(1);
 
     const handleChangeQuantity = ({ target: { value } }) => {
@@ -18,16 +19,18 @@ const Details_Props = ({ name, category, price, regularPrice, priceBulk }) => {
 
     let variablePrice = null;
 
-    if (priceBulk && priceBulk.enable === '1') {
-        const matchedRule = priceBulk.rules.find(({ min, max }) => {
+    if (bulkPrice) {
+        const matchedRule = bulkPrice.find(({ min, max }) => {
             return quantity >= (min || 1) && quantity <= (max || Infinity);
         });
 
-        if (matchedRule) {
-            priceBulk.type === 'fixed'
-                ? variablePrice = (price - matchedRule.discount)
-                : variablePrice = (price - (price * matchedRule.discount / 100));
-        };
+        if (matchedRule) variablePrice = (price - matchedRule.discount);
+
+        // if (matchedRule) {
+        //     bulkPrice.type === 'fixed'
+        //         ? variablePrice = (price - matchedRule.discount)
+        //         : variablePrice = (price - (price * matchedRule.discount / 100));
+        // };
     };
 
     const [randomNumber, setRandomNumber] = useState(getRandomNumber(15, 30));
@@ -60,14 +63,12 @@ const Details_Props = ({ name, category, price, regularPrice, priceBulk }) => {
                         </tr>
                     </thead>
                     <tbody>
-                        {priceBulk.rules.map(({ min, max, discount }, index) => (
+                        {bulkPrice.map(({ min, max, discount }, index) => (
                             <tr key={`price-${index}`}>
                                 <td>{min || 1}</td>
                                 <td>{max || 'Y más..'}</td>
                                 <td>
-                                    {priceBulk.type === 'fixed'
-                                        ? format_Price(price - discount)
-                                        : format_Price(price - (price * discount / 100))}
+                                    {format_Price(price - discount)}
                                     c/u
                                 </td>
                             </tr>
@@ -86,11 +87,11 @@ const Details_Props = ({ name, category, price, regularPrice, priceBulk }) => {
                 <span>{format_Price(variablePrice || price) + " c/u"}</span>
                 <span>{format_Price(regularPrice)}</span>
             </div>
-            <p>{randomNumber} personas están viendo este producto</p>
+            <p className={views}><FaRegEye className={eye}/> {randomNumber} personas están viendo este producto</p>
             <div className={containerPay}>
                 <div className={containerInput}>
-                    <button onClick={handleClickLess}>-</button>
-                    <button onClick={handleClickMore}>+</button>
+                    <button onClick={handleClickLess}><FaMinus /></button>
+                    <button onClick={handleClickMore}><FaPlus /></button>
                     <input
                         type='number'
                         min={1}
@@ -107,7 +108,7 @@ const Details_Props = ({ name, category, price, regularPrice, priceBulk }) => {
                 </button>
             </div>
             <hr />
-            {priceBulk && priceBulk.enable === '1' && renderTableBulkPrices()}
+            {bulkPrice && renderTableBulkPrices()}
         </div>
     );
 }

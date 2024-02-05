@@ -1,0 +1,29 @@
+.detailsContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: #242424;
+    padding: 2rem;
+    width: 100%;
+    border: 1px solid #A8741A;
+    gap: 20px;
+}
+
+.imgContainer {
+    width: 50%;
+    padding-bottom: 50%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.imgContainer img {
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.propsContainer {
+    /* width: 50%; */
+}

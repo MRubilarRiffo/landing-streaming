@@ -2,6 +2,8 @@ import * as actionTypes from './actions-type';
 
 const initialState = {
     products: [],
+    details: null,
+    reviewProduct: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +12,21 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: action.payload
+            };
+        case actionTypes.GET_DETAILS:
+            return {
+                ...state,
+                details: action.payload
+            };
+        case actionTypes.RESET_DETAILS:
+            return {
+                ...state,
+                details: []
+            };
+        case actionTypes.GET_REVIEWS_BY_PRODUCT:
+            return {
+                ...state,
+                reviewProduct: action.payload
             };
         default:
             return state;

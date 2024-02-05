@@ -1,0 +1,24 @@
+const { Review } = require('../../db');
+const { getProductById_h } = require('../products/getProductById_h');
+
+const getReviewsByProduct_h = async (productId) => {
+    try {
+        const product = await getProductById_h(productId);
+
+        if (product.error) return { error: 'Producto no encontrado' };
+
+        const reviews = await Review.findAll({
+            where: { productId: product.id },
+        });
+
+        console.log(reviews);
+
+        if (reviews.length == 0) return { error: `No existen reviews para el producto con id ${productId}` };
+
+        return reviews;
+    } catch (error) {
+        return error.message;
+    };
+};
+
+module.exports = { getReviewsByProduct_h };
