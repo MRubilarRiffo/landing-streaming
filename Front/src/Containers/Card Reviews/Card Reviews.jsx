@@ -1,20 +1,17 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getReviewsByProduct } from "../../Redux/actions";
+import { Star } from "../Star/Star";
+import { FaCheckCircle } from "react-icons/fa";
+import { card } from "./Card Reviews.module.css";
 
-const Card_Reviews = ({ productId }) => {
-    const dispatch = useDispatch();
+const Card_Reviews = ({ props }) => {
+    console.log(props);
 
-    useEffect(() => {
-        dispatch(getReviewsByProduct(productId));
-    }, []);
-
-    const reviews = useSelector(state => state.reviewProduct);
-
-    console.log(reviews);
     return (
-        <div>
-        
+        <div className={card}>
+            <div>
+                <Star averageRating={props.rating}/>
+            </div>
+            <p>"{props.content}"</p>
+            <p><FaCheckCircle /> Compra Verificada</p>
         </div>
     );
 };

@@ -28,6 +28,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 reviewProduct: action.payload
             };
+        case actionTypes.RESET_REVIEWS_BY_PRODUCT:
+            return {
+                ...state,
+                reviewProduct: []
+            };
         default:
             return state;
     };

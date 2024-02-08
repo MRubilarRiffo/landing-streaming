@@ -1,0 +1,138 @@
+{
+    "products": [
+        {
+            "name": "Spotify 3 meses",
+            "description": "Test test testTest test testTest test test",
+            "price": 9490,
+            "priceOffert": 4990,
+            "slug": "spotify-3-meses",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363692/zhu1umjbc0jjts4zvddh.webp",
+            "category": "Streaming",
+            "bulkPrice": [
+                { "min": "5", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "20", "discount": "2000" },
+                { "min": "21", "max": "", "discount": "3000" }
+            ]
+        },
+        {
+            "name": "Spotify 6 meses",
+            "description": "Test test testTest test testTest test test",
+            "price": 9490,
+            "priceOffert": 4990,
+            "slug": "spotify-6-meses",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363944/fia32jfuiqal8st9e6wf.webp",
+            "category": "Streaming",
+            "bulkPrice": [
+                { "min": "5", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "20", "discount": "2000" },
+                { "min": "21", "max": "", "discount": "3000" }
+            ]
+        },
+        {
+            "name": "Spotify 12 meses",
+            "description": "Test test testTest test testTest test test",
+            "price": 9490,
+            "priceOffert": 4990,
+            "slug": "spotify-12-meses",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363945/jw7pwtuoaaza8ym7ogko.webp",
+            "category": "Streaming",
+            "bulkPrice": [
+                { "min": "5", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "20", "discount": "2000" },
+                { "min": "21", "max": "", "discount": "3000" }
+            ]
+        },
+        {
+            "name": "Hbo Max 6 meses",
+            "description": "Test test testTest test testTest test test",
+            "price": 4490,
+            "priceOffert": 14990,
+            "slug": "adobe-create-6-meses",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707254339/afgglbqmhcsqaa9ypc5c.png",
+            "category": "Licencia",
+            "bulkPrice": [
+                { "min": "", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "20", "discount": "2000" },
+                { "min": "21", "max": "", "discount": "3000" }
+            ]
+        },
+        {
+            "name": "Adobe Create 3 meses",
+            "description": "Test test testTest test testTest test test",
+            "price": 4490,
+            "priceOffert": 14990,
+            "slug": "adobe-create-3-meses",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707256250/zh8kdwtcoa9cnzo4devz.png",
+            "category": "Licencia",
+            "bulkPrice": [
+                { "min": "", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "20", "discount": "2000" },
+                { "min": "21", "max": "", "discount": "3000" }
+            ]
+        },
+        {
+            "name": "Adobe Create 6 meses",
+            "description": "Test test testTest test testTest test test",
+            "price": 4490,
+            "priceOffert": 14990,
+            "slug": "adobe-create-6-meses",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707256250/zh8kdwtcoa9cnzo4devz.png",
+            "category": "Licencia",
+            "bulkPrice": [
+                { "min": "", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "20", "discount": "2000" },
+                { "min": "21", "max": "", "discount": "3000" }
+            ]
+        },
+        {
+            "name": "Adobe Create 12 meses",
+            "description": "Test test testTest test testTest test test",
+            "price": 4490,
+            "priceOffert": 14990,
+            "slug": "adobe-create-12-meses",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707256250/zh8kdwtcoa9cnzo4devz.png",
+            "category": "Licencia",
+            "bulkPrice": [
+                { "min": "", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "20", "discount": "2000" },
+                { "min": "21", "max": "", "discount": "3000" }
+            ]
+        }
+    ],
+    "reviews": [
+        {
+            "content": "La página tenía varias opciones de cuentas de Spotify, así que pude elegir la que más se acomodaba a lo que quería. Fue como tener un menú musical, y elegí la que me tentó más.",
+            "rating": 5,
+            "productId": 1
+        },
+        {
+            "content": "La entrega de la cuenta fue rápida, más veloz que pedir una pizza. En pocos minutos, ya estaba disfrutando de mi música sin atados.",
+            "rating": 3,
+            "productId": 1
+        },
+        {
+            "content": "Lo que más me gustó es que todo fue transparente. No hubo sorpresas ni costos escondidos. Compré y recibí lo que esperaba, así de simple.",
+            "rating": 4,
+            "productId": 1
+        },
+        {
+            "content": "En resumen, la página donde compré la cuenta de Spotify fue la clave para tener mi música favorita a un precio accesible. Fue como una inversión que me dejó la raja, ¡y ni un arrepentimiento!",
+            "rating": 1,
+            "productId": 1
+        }
+    ],
+    "licenses": [
+        {
+            "key": "1234-5678-8901-2344",
+            "isActive": true,
+            "ProductId": 1
+        }
+    ]
+}

@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetails } from "../../Redux/actions";
-import { RESET_DETAILS } from "../../Redux/actions-type";
-import { detailsContainer, imgContainer, propsContainer } from "./Product.module.css";
+import { getDetails, getReviewsByProduct } from "../../Redux/actions";
+import { RESET_DETAILS, RESET_REVIEWS_BY_PRODUCT } from "../../Redux/actions-type";
+import { containerProps, detailsContainer, imgContainer, containerCard } from "./Product.module.css";
 import { Loading } from "../Loading/Loading";
 import { Details_Props } from "../Details Props/Details Props";
 import { Card_Reviews } from "../Card Reviews/Card Reviews";
@@ -14,12 +14,15 @@ const Product = () => {
 
     useEffect(() => {
         dispatch(getDetails(id));
+        dispatch(getReviewsByProduct(id));
         return () => {
             dispatch({ type: RESET_DETAILS });
+            dispatch({ type: RESET_REVIEWS_BY_PRODUCT });
         };
     }, [id]);
 
     const product = useSelector(state => state.details);
+    const reviews = useSelector(state => state.reviewProduct);
     
     const handleJsonParse = (bulkPrice) => {
         try {
@@ -38,7 +41,7 @@ const Product = () => {
                         : <Loading />
                     }
                 </div>
-                <div className={propsContainer}>
+                <div className={containerProps}>
                     {product && product.name &&
                         <Details_Props
                             name={product.name}
@@ -47,12 +50,21 @@ const Product = () => {
                             regularPrice={product.price}
                             description={product.description}
                             bulkPrice={handleJsonParse(product.bulkPrice)}
+                            averageRating={product.averageRating}
+                            countReview={reviews.length}
                             />
                     }
                 </div>
             </div>
+            <h2>Reviews</h2>
             <div>
-                <Card_Reviews productId={id} />
+                {reviews?.length > 0 &&
+                    <div className={containerCard}>
+                        {reviews.map((props, index) => 
+                            <Card_Reviews key={`review-${index}`} props={props} />
+                        )}
+                    </div>
+                }
             </div>
         </div>
     );

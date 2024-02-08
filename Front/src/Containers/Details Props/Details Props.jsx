@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
+import { seccionReview, views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
 import { format_Price } from '../../Functions/Format Price';
 import { getRandomNumber } from '../../Functions/Random Number';
 import { FaRegEye, FaMinus, FaPlus } from "react-icons/fa";
+import { Star } from '../Star/Star';
 
-const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice }) => {
+const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice, averageRating, countReview }) => {
     const [quantity, setQuantity] = useState(1);
 
     const handleChangeQuantity = ({ target: { value } }) => {
@@ -81,12 +82,16 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
 
     return (
         <div className={containerDetails}>
-            <h3>{name.toUpperCase()}</h3>
-            <p>Categoría: {category}</p>
+            <div className={seccionReview}>
+                <Star averageRating={averageRating} />
+                <span>( {countReview} opininiones de clientes )</span>
+            </div>
+            <h2>{name.toUpperCase()}</h2>
             <div className={containerPrices}>
                 <span>{format_Price(variablePrice || price) + " c/u"}</span>
                 <span>{format_Price(regularPrice)}</span>
             </div>
+            <p>Categoría: {category}</p>
             <p className={views}><FaRegEye className={eye}/> {randomNumber} personas están viendo este producto</p>
             <div className={containerPay}>
                 <div className={containerInput}>
@@ -104,11 +109,28 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
                     className={buttonPay}
                     onClick={handleFinishPayment}
                     >
-                    COMPRAR AHORA
+                    <span>COMPRAR AHORA</span>
                 </button>
             </div>
             <hr />
-            {bulkPrice && renderTableBulkPrices()}
+            {//bulkPrice && renderTableBulkPrices()
+            }
+            <h3>¡Compra más, ahorra más!</h3>
+            {//bulkPrice.map(({ min, max, discount }, index) => (
+                // <span key={index}>
+                //     Lleva {min || 1} y obtén {format_Price(discount)} de DCTO en c/u
+                // </span>
+
+                // <tr key={`price-${index}`}>
+                //     <td>{min || 1}</td>
+                //     <td>{max || 'Y más..'}</td>
+                //     <td>
+                //         {format_Price(price - discount)}
+                //         c/u
+                //     </td>
+                // </tr>
+            //))
+            }
         </div>
     );
 }

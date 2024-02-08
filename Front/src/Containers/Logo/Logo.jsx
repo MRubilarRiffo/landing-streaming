@@ -1,5 +1,5 @@
 import { containerLogo } from './Logo.module.css';
-import logo from '../../assets/logoInnovoza.svg';
+import logo from '../../assets/logo.png';
 
 const Logo = () => {
     return (

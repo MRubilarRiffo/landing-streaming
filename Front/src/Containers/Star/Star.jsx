@@ -7,6 +7,8 @@ const Star = ({ averageRating }) => {
         return Math.floor(num);
     };
 
+    console.log(averageRating);
+
     const star = {
         filled: <IoIosStar />,
         half: <IoIosStarHalf />,
@@ -18,21 +20,23 @@ const Star = ({ averageRating }) => {
 
         if (roundValue === 0 || roundValue === 5) {
             return roundValue === 0
-                ? Array(5).fill(star.outline).map((element, index) => cloneElement(element, { key: `${element}-${index}` }))
-                : Array(5).fill(star.filled).map((element, index) => cloneElement(element, { key: `${element}-${index}` }));
+                ? Array(5).fill(star.outline).map((element, index) => cloneElement(element, { key: index }))
+                : Array(5).fill(star.filled).map((element, index) => cloneElement(element, { key: index }));
         } else {
             const wholePart = Array(roundValue).fill(star.filled);
             const decimalPart = star.half;
-            const remainingPart = Array(5 - roundValue - 1).fill(star.outline);
-      
-            return [...wholePart, decimalPart, ...remainingPart].map((element, index) => cloneElement(element, { key: `${element}-${index}` }));
+            const remainingPart = Array(5 - roundValue - (roundValue == averageRating ? 0 : 1)).fill(star.outline);
+
+            return roundValue == averageRating
+                ? [...wholePart, ...remainingPart].map((element, index) => cloneElement(element, { key: index }))
+                : [...wholePart, decimalPart, ...remainingPart].map((element, index) => cloneElement(element, { key: index }));
         };
     };
     
     const representation = generateRepresentation(averageRating);
 
     return (
-        <div className={containerStar}>
+        <div className={containerStar} >
             {representation}
         </div>
     );

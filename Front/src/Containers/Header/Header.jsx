@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../Logo/Logo";
-import { headerContainer, menuContainer } from "./Header.module.css";
+import { title, breadcrumbs, triangle, triangleRight, triangleLeft, nav, space, header, menuContainer } from "./Header.module.css";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Header = () => {
     };
 
     const menu = [
-        { text: "Inicio", navigate: "/" },
+        { text: "Home", navigate: "/" },
         { text: "Reviews", navigate: "/reviews" },
     ];
 
@@ -19,26 +19,44 @@ const Header = () => {
         { info1: "5.0", info2: "review" },
     ]
 
+    const textBreadcrumbs = "Home";
+
     return (
-        <div className={headerContainer}>
-            <Logo />
-            <div className={menuContainer}>
-                {menu.map((item, index) => (
-                    <p
-                        key={`${item}-${index}`}
-                        onClick={() => handleClick(item.navigate)}
-                        >
-                        {item.text}
-                    </p>
-                ))}
+        <div className={header}>
+            <div className={triangle}>
+                <div className={triangleLeft}></div>
+                <div className={triangleRight}></div>
             </div>
-            <div>
-                {info.map((item, index) => (
-                    <div key={`div-${index}`}>
-                        <p key={`${item.info1}-${index}`}>{item.info1}</p>
-                        <p key={`${item.info2}-${index}`}>{item.info2}</p>
+            <div className={space}>
+                <div className={nav}>
+                    <Logo />
+                    <div className={menuContainer}>
+                        {menu.map((item, index) => (
+                            <a
+                                key={`${item}-${index}`}
+                                onClick={() => handleClick(item.navigate)}
+                                >
+                                {item.text}
+                            </a>
+                        ))}
                     </div>
-                ))}
+                </div>
+                <div className={title}>
+                    <h2>PRODUCTOS</h2>
+                    <div className={breadcrumbs}>
+                            <p>{textBreadcrumbs}</p>
+                    </div>
+                </div>
+                {
+                    // <div>
+                    //     {info.map((item, index) => (
+                    //         <div key={`div-${index}`}>
+                    //             <p key={`${item.info1}-${index}`}>{item.info1}</p>
+                    //             <p key={`${item.info2}-${index}`}>{item.info2}</p>
+                    //         </div>
+                    //     ))}
+                    // </div>
+                }
             </div>
         </div>
     );

@@ -1,20 +1,104 @@
-.headerContainer {
+.header {
+    display: flex;
+    justify-content: center;
+    background-image: url(../../assets/breadcrumb_bg02.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: relative;
+    padding: 2rem;
+}
+
+.space {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.menuContainer p {
-    cursor: pointer;
-}
-
-.menuContainer p:hover {
-    color: #A8741A;
+    width: 100%;
+    height: 50px;
 }
 
 .menuContainer {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 50px;
+}
+
+.menuContainer a {
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    position: relative;
+}
+
+.menuContainer a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #45F882;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.menuContainer a:hover::before {
+    opacity: 1; /* Mostrar la línea vertical cuando el cursor esté encima */
+  }
+
+.triangle {
+    height: 30px;
+}
+
+.triangleLeft,
+.triangleRight {
+    position: absolute;
+    bottom: 0;
+    height: 0;
+    width: 0;
+}
+
+.triangleLeft {
+    border-top: 30px solid transparent; /* Ajusta la altura según tu diseño */
+    border-right: 50vw solid #45F882; /* La mitad del ancho del header */
+    right: 0;
+    left: auto;
+}
+
+.triangleRight {
+    border-top: 30px solid transparent; /* Ajusta la altura según tu diseño */
+    border-left: 50vw solid #45F882; /* La mitad del ancho del header */
+    left: 0;
+    right: auto;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - 100px);
+}
+
+.title h2 {
+    font-size: 3.4rem;
+    letter-spacing: 2px;
+    font-weight: 800;
+}
+
+.breadcrumbs {
+
+}
+
+@media (max-width: 767px) {
+    .header {
+        padding: 2rem 0.5rem;
+    }
 }

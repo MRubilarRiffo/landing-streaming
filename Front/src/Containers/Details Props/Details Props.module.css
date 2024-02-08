@@ -1,14 +1,16 @@
 .containerDetails {
-    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     text-align: left;
 }
 
-.containerDetails h3 {
-    color: #a8741a;
-    font-size: 1.8em;
+.containerDetails h2 {
+    font-size: 2.5em;
     margin-block-start: 0em;
-    margin-block-end: 1em;
+    margin-block-end: 0em;
     margin-right: 50px;
+    letter-spacing: 1.5px;
 }
 
 .containerPay {
@@ -23,20 +25,20 @@
     flex-wrap: nowrap;
     align-items: center;
     flex-direction: row;
+    color: #adb0bc;
+    font-weight: 800;
 }
 
 .containerInput button {
     position: absolute;
     background-color: transparent;
-    color: #000000;
-    /* font-weight: 500; */
     border: none;
     font-size: 12px;
     transition: 0.5s color;
 }
 
 .containerInput button:hover {
-    color: #a8741a;
+    color: #45f882;
     cursor: pointer;
 }
 
@@ -49,12 +51,15 @@
 }
 
 .containerPay input {
+    border-radius: 3px;
+    background: #1b242e;
+    border: 0.25px solid #282f36;
     width: 70px;
     height: 50px;
-    background-color: #ffffff;
-    border: 1px solid #a8a8a8;
-    color: #000000;
+    background-color: #1B242E;
+    color: #adb0bc;
     font-size: 15px;
+    font-weight: 800;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: textfield;
@@ -73,31 +78,77 @@
     align-items: center;
     gap: 15px;
     margin-block-end: 15px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .containerPrices span:first-child {
-    color: #A8741A;
-    font-size: 1.5em;
-    font-weight: 500;
+    /* color: #A8741A; */
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .containerPrices span:nth-child(2) {
     color: #a8a8a8;
-    font-size: 1em;
+    font-size: 15px;
     text-decoration: line-through;
 }
 
 .buttonPay {
-    width: 250px;
-    background-color: #a8741a;
-    border: 0px;
-    font-weight: bolder;
+    font-family: 'Barlow', sans-serif;
+    display: block;
+    width: 160px;
+    background-color: #45f882;
+    font-size: 15px;
+    font-weight: 800;
     transition: 0.5s background-color;
+    color: #0f161b;
+    letter-spacing: 1px;
+    border: none;
+    -webkit-clip-path: path("M8,0H152a8,8,0,0,1,8,8V33.63C160,37.36,140,53,140,53H8a8,8,0,0,1-8-8V8A8,8,0,0,1,8,0Z");
+    clip-path: path("M8,0H152a8,8,0,0,1,8,8V33.63C160,37.36,140,53,140,53H8a8,8,0,0,1-8-8V8A8,8,0,0,1,8,0Z");
 }
 
 .buttonPay:hover {
     background-color: #000000;
     cursor: pointer;
+    background-color: #ffbe18;
+}
+
+.buttonPay span {
+    display: inline-block;
+    animation: shake 0.8s ease infinite;
+}
+
+.seccionReview {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.seccionReview span {
+    color: #ADB0BC;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+@keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-3px); /* Ajusta la amplitud del movimiento lateral según sea necesario */
+    }
+    50% {
+      transform: translateX(3px); /* Ajusta la amplitud del movimiento lateral según sea necesario */
+    }
+    75% {
+      transform: translateX(-2px); /* Ajusta la amplitud del movimiento lateral según sea necesario */
+    }
+    100% {
+      transform: translateX(0);
+    }
 }
 
 .tablePrices {
@@ -126,7 +177,7 @@
         width: 100%;
     }
 
-    .containerDetails h3 {
+    .containerDetails h2 {
         margin-right: 0px;
     }
 

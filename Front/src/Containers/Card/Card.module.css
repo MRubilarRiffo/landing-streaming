@@ -1,78 +1,105 @@
 .card {
-    height: 350px;
-    padding: 10px;
+    padding: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     border: 1px solid transparent;
+    background-image: url(../../assets/shop_shape.svg);
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
 }
 
 .card:hover {
-    background-color: #242424;
-    border: 1px solid #A8741A;
-    box-shadow: 0 0 100px #000000;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all .3s ease-in-out;
+    
+    .containerImg img {
+        animation: reboteAnimacion 1s ease infinite;
+    }
 }
 
 .containerImg {
     width: 100%;
     overflow: hidden;
     position: relative;
+    background-color: #0F161C;
+    border-radius: 8px;
 }
 
 .containerImg img {
-    display: flex;
     width: 100%;
-    height: auto;
+    /* height: auto; */
+    padding: 30px;
+}
+
+@keyframes reboteAnimacion {
+    0%, 100% {
+        transform: translateY(3px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 .info {
+    display: flex;
+    flex-direction: row;
     margin: 15px 10px 15px 10px;
-    flex-grow: 1;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    text-transform: uppercase;
 }
 
 .info h3 {
-    font-size: 0.9em;
-    margin-bottom: 5px;
+    font-size: 18px;
     color: #fff;
-}
-
-.props_product {
-    background-color: aliceblue;
-    height: 100px;
 }
 
 .info > div {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+
+.info div:first-child {
+    align-items: flex-start;
+}
+
+.info div:nth-child(2) {
+    align-items: flex-end;
 }
 
 .info div span:first-child {
-    color: #A8741A;
-    font-weight: 500;
-    font-size: 1em;
+    color: #45f882;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .info div span:nth-child(2) {
-    color: #a8a8a8;
-    font-size: 0.9em;
     text-decoration: line-through;
 }
 
-.info p {
-    font-size: 0.8em;
-    color: #dddddd;
+.info p .info div span:nth-child(2) {
+    font-size: 14px;
+    color: #adb0bc;
+}
+
+.line {
+    display: block;
+    width: 100%;
+    background: radial-gradient(circle, rgb(245, 246, 249) 0%, rgba(255, 255, 255, 0) 100%);
+    height: 1px;
+    opacity: 0.15;
+    margin: 10px 0 -5px;
 }
 
 @media (max-width: 767px) {
     .info {
         margin: 10px 5px 5px 5px;
-        height: 110px;
     }
 
     .card {

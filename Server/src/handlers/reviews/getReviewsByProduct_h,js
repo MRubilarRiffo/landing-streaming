@@ -11,8 +11,6 @@ const getReviewsByProduct_h = async (productId) => {
             where: { productId: product.id },
         });
 
-        console.log(reviews);
-
         if (reviews.length == 0) return { error: `No existen reviews para el producto con id ${productId}` };
 
         return reviews;
