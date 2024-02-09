@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { seccionReview, views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
+import { categoryContainer, poppins, seccionReview, views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
 import { format_Price } from '../../Functions/Format Price';
 import { getRandomNumber } from '../../Functions/Random Number';
 import { FaRegEye, FaMinus, FaPlus } from "react-icons/fa";
 import { Star } from '../Star/Star';
 
-const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice, averageRating, countReview }) => {
+const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice, averageRating, countReview, shortDescription }) => {
     const [quantity, setQuantity] = useState(1);
 
     const handleChangeQuantity = ({ target: { value } }) => {
@@ -15,8 +15,8 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
         setQuantity(parsedValue);
     };
 
-    const handleClickMore = () => setQuantity(quantity + 1);
-    const handleClickLess = () => (quantity > 1) && setQuantity(quantity - 1);
+    const handleClickPlus = () => setQuantity(quantity + 1);
+    const handleClickMinus = () => (quantity > 1) && setQuantity(quantity - 1);
 
     let variablePrice = null;
 
@@ -84,19 +84,19 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
         <div className={containerDetails}>
             <div className={seccionReview}>
                 <Star averageRating={averageRating} />
-                <span>( {countReview} opininiones de clientes )</span>
+                <p>( {countReview} opininiones de clientes )</p>
             </div>
             <h2>{name.toUpperCase()}</h2>
             <div className={containerPrices}>
-                <span>{format_Price(variablePrice || price) + " c/u"}</span>
+                <span>{format_Price(variablePrice || price)}</span>
                 <span>{format_Price(regularPrice)}</span>
             </div>
-            <p>Categoría: {category}</p>
-            <p className={views}><FaRegEye className={eye}/> {randomNumber} personas están viendo este producto</p>
+            {shortDescription.length > 0 && <p className={poppins}>{shortDescription}</p>}
+            <p className={`${views} ${poppins}`}><FaRegEye className={eye}/> {randomNumber} personas están viendo este producto</p>
             <div className={containerPay}>
                 <div className={containerInput}>
-                    <button onClick={handleClickLess}><FaMinus /></button>
-                    <button onClick={handleClickMore}><FaPlus /></button>
+                    <button onClick={handleClickMinus}><FaMinus /></button>
+                    <button onClick={handleClickPlus}><FaPlus /></button>
                     <input
                         type='number'
                         min={1}
@@ -112,7 +112,7 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
                     <span>COMPRAR AHORA</span>
                 </button>
             </div>
-            <hr />
+            <p className={poppins}><span className={categoryContainer}>Categoría:</span> {category}</p>
             {//bulkPrice && renderTableBulkPrices()
             }
             <h3>¡Compra más, ahorra más!</h3>

@@ -1,7 +1,7 @@
 .detailsContainer {
     display: flex;
     flex-direction: row;
-    padding: 2rem;
+    padding: 4rem 2rem;
     width: 100%;
     gap: 50px;
 }
@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     width: 50%;
-
+    position: relative;
     padding: 19px;
     -webkit-clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
     clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
@@ -22,7 +22,7 @@
     background: #1b242e;
 }
 
-.imgContainer img {
+.imgProduct {
     width: 100%;
     padding: 40px;
     background-color: #0F161C;
@@ -47,14 +47,23 @@
     .containerCard > div {
         flex: 0 0 33.33%;
     }
+
+    .detailsContainer {
+        padding: 2rem;
+    }
 }
 
 @media (max-width: 767px) {
     .detailsContainer {
+        padding: 3rem 1rem;
         flex-direction: column;
     }
 
     .imgContainer {
+        width: 100%;
+    }
+
+    .containerProps {
         width: 100%;
     }
 

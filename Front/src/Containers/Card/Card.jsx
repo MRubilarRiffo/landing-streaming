@@ -1,4 +1,4 @@
-import { card, containerImg, info, line } from './Card.module.css';
+import { card, containerImg, info, line, containerStar, containerCategory, containerPrice } from './Card.module.css';
 import { format_Price } from "../../Functions/Format Price";
 import { useNavigate } from 'react-router-dom';
 import { Star } from '../Star/Star';
@@ -23,12 +23,12 @@ const Card = ({ props }) => {
             <div className={info}>
                 <div>
                     <h3>{props.name}</h3>
-                    <p>{props.category}</p>
-                    <div>
+                    <p className={containerCategory}>{props.category}</p>
+                    <div className={containerStar}>
                         <Star averageRating={props.averageRating}/>
                     </div>
                 </div>
-                <div>
+                <div className={containerPrice}>
                     <span>{format_Price(props.priceOffert)}</span>
                     <span>{format_Price(props.price)}</span>
                 </div>

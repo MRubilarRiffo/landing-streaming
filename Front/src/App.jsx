@@ -8,6 +8,7 @@ import { Admin } from './Containers/Admin/Admin';
 import { Finish_Payment } from './Containers/Finish Payment/Finish Payment';
 import { Header } from './Containers/Header/Header';
 import { Product } from './Containers/Product/Product';
+import { Notification } from './Containers/Notification/Notification'
 
 function App() {
     const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
                 <Route path='/admin' element={<Admin />} />
                 <Route path='/finalizar-pago' element={<Finish_Payment />} />
             </Routes>
+            <Notification />
         </>
     );
 };

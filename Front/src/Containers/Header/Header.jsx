@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../Logo/Logo";
-import { title, breadcrumbs, triangle, triangleRight, triangleLeft, nav, space, header, menuContainer } from "./Header.module.css";
+import { title, breadcrumbs, nav, space, header, menuContainer } from "./Header.module.css";
+import { Marquee_Effect } from "../Marquee Effect/Marquee Effect";
 
 const Header = () => {
     const navigate = useNavigate();
@@ -23,10 +24,7 @@ const Header = () => {
 
     return (
         <div className={header}>
-            <div className={triangle}>
-                <div className={triangleLeft}></div>
-                <div className={triangleRight}></div>
-            </div>
+            <Marquee_Effect />
             <div className={space}>
                 <div className={nav}>
                     <Logo />
@@ -47,16 +45,6 @@ const Header = () => {
                             <p>{textBreadcrumbs}</p>
                     </div>
                 </div>
-                {
-                    // <div>
-                    //     {info.map((item, index) => (
-                    //         <div key={`div-${index}`}>
-                    //             <p key={`${item.info1}-${index}`}>{item.info1}</p>
-                    //             <p key={`${item.info2}-${index}`}>{item.info2}</p>
-                    //         </div>
-                    //     ))}
-                    // </div>
-                }
             </div>
         </div>
     );

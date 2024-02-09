@@ -1,7 +1,7 @@
 .containerDetails {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     text-align: left;
 }
 
@@ -38,7 +38,7 @@
 }
 
 .containerInput button:hover {
-    color: #45f882;
+    color: #ffbe18;
     cursor: pointer;
 }
 
@@ -54,7 +54,7 @@
     border-radius: 3px;
     background: #1b242e;
     border: 0.25px solid #282f36;
-    width: 70px;
+    width: 90px;
     height: 50px;
     background-color: #1B242E;
     color: #adb0bc;
@@ -126,7 +126,7 @@
     font-size: 16px;
 }
 
-.seccionReview span {
+.seccionReview p {
     color: #ADB0BC;
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
@@ -156,20 +156,26 @@
     flex-direction: column;
 }
 
-.containerDetails hr {
-    width: 100%;
-    border: 1px solid #A8741A;
-}
-
 .views {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .eye {
-    color: #A8741A;
+    color: #ffbe18;
     font-size: 21px;
+}
+
+.poppins {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    color: #adb0bc;
+    line-height: 1.75;
+}
+
+.categoryContainer {
+    color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -179,15 +185,12 @@
 
     .containerDetails h2 {
         margin-right: 0px;
-    }
-
-    .buttonPay {
-        width: 100%;
+        font-size: 2em;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    .buttonPay {
-        width: 100%;
+    .containerDetails h2 {
+        margin-right: 0px;
     }
 }

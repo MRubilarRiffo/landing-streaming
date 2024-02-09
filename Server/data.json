@@ -3,6 +3,7 @@
         {
             "name": "Spotify 3 meses",
             "description": "Test test testTest test testTest test test",
+            "shortDescription": "Lorem ipsum dolor sit amet, consteur adipiscing Duis elementum solliciin is yaugue euismods Nulla ullaorper.",
             "price": 9490,
             "priceOffert": 4990,
             "slug": "spotify-3-meses",
@@ -18,6 +19,7 @@
         {
             "name": "Spotify 6 meses",
             "description": "Test test testTest test testTest test test",
+            "shortDescription": "Lorem ipsum dolor sit amet, consteur adipiscing Duis elementum solliciin is yaugue euismods Nulla ullaorper.",
             "price": 9490,
             "priceOffert": 4990,
             "slug": "spotify-6-meses",
@@ -33,6 +35,7 @@
         {
             "name": "Spotify 12 meses",
             "description": "Test test testTest test testTest test test",
+            "shortDescription": "Lorem ipsum dolor sit amet, consteur adipiscing Duis elementum solliciin is yaugue euismods Nulla ullaorper.",
             "price": 9490,
             "priceOffert": 4990,
             "slug": "spotify-12-meses",

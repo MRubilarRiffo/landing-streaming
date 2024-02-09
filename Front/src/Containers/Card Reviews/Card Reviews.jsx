@@ -3,8 +3,6 @@ import { FaCheckCircle } from "react-icons/fa";
 import { card } from "./Card Reviews.module.css";
 
 const Card_Reviews = ({ props }) => {
-    console.log(props);
-
     return (
         <div className={card}>
             <div>

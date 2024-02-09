@@ -1,0 +1,36 @@
+.marquee {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 25px;
+    white-space: pre;
+    background-color: #45F882;
+    color: #0f161b;
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+  
+.marquee .wrapper {
+    position: absolute;
+    overflow: hidden;
+    width: 200%;
+    animation: marquee 10s linear infinite;
+}
+  
+.marquee .wrapper p {
+    float: left;
+    width: 50%;
+}
+  
+@keyframes marquee {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
