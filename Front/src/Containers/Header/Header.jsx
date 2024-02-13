@@ -1,43 +1,28 @@
-import { useNavigate } from "react-router-dom";
 import { Logo } from "../Logo/Logo";
-import { title, breadcrumbs, nav, space, header, menuContainer } from "./Header.module.css";
+import { title, breadcrumbs, nav, space, header, logo } from "./Header.module.css";
 import { Marquee_Effect } from "../Marquee Effect/Marquee Effect";
+import { Menu_Header } from "../Menu Header/Menu Header";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+    const textBreadcrumbs = "Home";
+
     const navigate = useNavigate();
 
-    const handleClick = (item) => {
-        navigate(item)
-    };
-
-    const menu = [
-        { text: "Home", navigate: "/" },
-        { text: "Reviews", navigate: "/reviews" },
-    ];
-
-    const info = [
-        { info1: "+500", info2: "clientes" },
-        { info1: "5.0", info2: "review" },
-    ]
-
-    const textBreadcrumbs = "Home";
+    const handleClick = () => navigate('/');
 
     return (
         <div className={header}>
             <Marquee_Effect />
             <div className={space}>
                 <div className={nav}>
-                    <Logo />
-                    <div className={menuContainer}>
-                        {menu.map((item, index) => (
-                            <a
-                                key={`${item}-${index}`}
-                                onClick={() => handleClick(item.navigate)}
-                                >
-                                {item.text}
-                            </a>
-                        ))}
+                    <div
+                        className={logo}
+                        onClick={() => handleClick()}
+                        >
+                        <Logo />
                     </div>
+                    <Menu_Header />
                 </div>
                 <div className={title}>
                     <h2>PRODUCTOS</h2>

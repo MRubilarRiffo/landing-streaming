@@ -7,8 +7,6 @@ const Star = ({ averageRating }) => {
         return Math.floor(num);
     };
 
-    console.log(averageRating);
-
     const star = {
         filled: <IoIosStar />,
         half: <IoIosStarHalf />,

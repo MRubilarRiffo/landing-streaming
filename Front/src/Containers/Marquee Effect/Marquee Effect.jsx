@@ -1,7 +1,7 @@
 import { marquee, wrapper } from "./Marquee Effect.module.css";
 
 const Marquee_Effect = () => {
-    const texts = ['¡ PAGA EN HASTA 12 CUOTAS !', '+500 CLIENTES'].join('\t\t');
+    const texts = ['¡ PAGA EN HASTA 12 CUOTAS !', '+500 CLIENTES'].join('\t');
 
     return (
         <div className={marquee}>

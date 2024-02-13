@@ -1,13 +1,12 @@
 .card {
-    padding: 13px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-image: url(../../assets/shop_shape.svg);
-    background-size: contain;
-    background-position: top center;
-    background-repeat: no-repeat;
+    border-radius: 8px;
+    padding: 13px;
+    background-image: linear-gradient(to bottom, #1B242E, #171D23);
+    clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
 }
 
 .card:hover {
@@ -22,8 +21,6 @@
 
 .containerImg {
     width: 100%;
-    overflow: hidden;
-    position: relative;
     background-color: #0F161C;
     border-radius: 8px;
 }
@@ -56,6 +53,7 @@
 .info h3 {
     font-size: 18px;
     color: #fff;
+    text-align: left;
 }
 
 .info > div {
@@ -78,14 +76,12 @@
     font-size: 18px;
 }
 
-.containerCategory {
+.containerCategory, .containerPrice span:nth-child(2) {
     color: #adb0bc;
     font-size: 14px;
 }
 
 .containerPrice span:nth-child(2) {
-    color: #adb0bc;
-    font-size: 14px;
     text-decoration: line-through;
 }
 
@@ -99,40 +95,17 @@
 }
 
 @media (max-width: 767px) {
-    .info {
-        margin: 10px 5px 5px 5px;
-        text-transform: none;
-    }
-
-    .info h3 {
-        font-size: 15px;
-        text-align: left;
-    }
-
     .card {
-        height: auto;
         padding: 9px;
-    }
-
-    .info p {
-        display: none;
-    }
-
-    .line {
-        display: none;
-    }
-
-    .containerStar {
-        display: none;
-    }
-
-    .containerPrice span:first-child {
-        font-size: 15px;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
-    .card {
-        height: auto;
+@media (max-width: 1024px) {
+    .info p, .line {
+        display: none;
+    }
+
+    .info h3, .containerPrice span:first-child {
+        font-size: 15px;
     }
 }

@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetails, getReviewsByProduct } from "../../Redux/actions";
 import { RESET_DETAILS, RESET_REVIEWS_BY_PRODUCT } from "../../Redux/actions-type";
-import { imgProduct, containerProps, detailsContainer, imgContainer, containerCard } from "./Product.module.css";
+import { container, imgProduct, containerProps, detailsContainer, imgContainer } from "./Product.module.css";
 import { Loading } from "../Loading/Loading";
 import { Details_Props } from "../Details Props/Details Props";
-import { Card_Reviews } from "../Card Reviews/Card Reviews";
+import { More_Info_Product } from "../More Info Product/More Info Product";
 
 const Product = () => {
     const { id } = useParams();
@@ -22,7 +22,7 @@ const Product = () => {
     }, [id]);
 
     const product = useSelector(state => state.details) || {};
-    const reviews = useSelector(state => state.reviewProduct);
+    const reviews = useSelector(state => state.reviewProduct) || [];
     
     const handleJsonParse = (bulkPrice) => {
         try {
@@ -36,7 +36,7 @@ const Product = () => {
         <>
             {Object.keys(product).length === 0
                 ? <Loading />
-                : <div>
+                : <div className={container}>
                     <div className={detailsContainer}>
                         <div className={imgContainer}>
                             {product && product.image
@@ -60,17 +60,15 @@ const Product = () => {
                             }
                         </div>
                     </div>
-                    <h2>Reviews</h2>
-                    <div>
-                        {reviews?.length > 0 &&
-                            <div className={containerCard}>
-                                {reviews.map((props, index) => 
-                                    <Card_Reviews key={`review-${index}`} props={props} />
-                                )}
-                            </div>
-                        }
+                    <div className={detailsContainer}>
+                        <More_Info_Product
+                            reviews={reviews}
+                            description={product.description}
+                            countReview={reviews.length}
+                            />
                     </div>
                 </div>
+                
             }
         </>
     );

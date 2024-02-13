@@ -1,4 +1,4 @@
-import { card, containerImg, info, line, containerStar, containerCategory, containerPrice } from './Card.module.css';
+import { card, containerImg, info, line, containerCategory, containerPrice } from './Card.module.css';
 import { format_Price } from "../../Functions/Format Price";
 import { useNavigate } from 'react-router-dom';
 import { Star } from '../Star/Star';
@@ -24,7 +24,7 @@ const Card = ({ props }) => {
                 <div>
                     <h3>{props.name}</h3>
                     <p className={containerCategory}>{props.category}</p>
-                    <div className={containerStar}>
+                    <div>
                         <Star averageRating={props.averageRating}/>
                     </div>
                 </div>

@@ -9,3 +9,28 @@
 * {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #0F161B;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: #0F161B;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #45F882;
+}
+
+*::-moz-selection {
+  background: #45F882;
+  color: #0F161B;
+  text-shadow: none;
+}
