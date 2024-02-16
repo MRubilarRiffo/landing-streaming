@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { categoryContainer, poppins, seccionReview, views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay, tablePrices } from './Details Props.module.css';
+import { categoryContainer, poppins, seccionReview, views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay } from './Details Props.module.css';
 import { format_Price } from '../../Functions/Format Price';
 import { getRandomNumber } from '../../Functions/Random Number';
 import { FaRegEye, FaMinus, FaPlus } from "react-icons/fa";
@@ -52,34 +52,6 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
         });
     };
 
-    const renderTableBulkPrices = () => {
-        return (
-            <div className={tablePrices}>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Mínimo</th>
-                            <th>Máximo</th>
-                            <th>Precio Unitario</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {bulkPrice.map(({ min, max, discount }, index) => (
-                            <tr key={`price-${index}`}>
-                                <td>{min || 1}</td>
-                                <td>{max || 'Y más..'}</td>
-                                <td>
-                                    {format_Price(price - discount)}
-                                    c/u
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        );
-    };
-
     return (
         <div className={containerDetails}>
             <div className={seccionReview}>
@@ -113,10 +85,9 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
                 </button>
             </div>
             <p className={poppins}><span className={categoryContainer}>Categoría:</span> {category}</p>
-            {//bulkPrice && renderTableBulkPrices()
-            }
-            <h3>¡Compra más, ahorra más!</h3>
-            {//bulkPrice.map(({ min, max, discount }, index) => (
+            {
+                //<h3>¡Compra más, ahorra más!</h3>
+                //bulkPrice.map(({ min, max, discount }, index) => (
                 // <span key={index}>
                 //     Lleva {min || 1} y obtén {format_Price(discount)} de DCTO en c/u
                 // </span>
@@ -129,7 +100,7 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
                 //         c/u
                 //     </td>
                 // </tr>
-            //))
+                //))
             }
         </div>
     );

@@ -35,3 +35,16 @@ export const getReviewsByProduct = (productId) => {
         };
     };
 };
+
+export const submitPaymentForm = (formData) => {
+    return async function (dispatch) {
+        try {
+            const response = await axios.post(`${API}/mercadopago/process_payment`, formData);
+
+            return dispatch({ type: actionTypes.SUBMIT_PAYMENT_FORM_SUCCESS, payload: response.data });
+        } catch (error) {
+            console.log(error.response.data);
+            return dispatch({ type: actionTypes.SUBMIT_PAYMENT_FORM_FAILURE, payload: error.response.data });
+        }
+    };
+};

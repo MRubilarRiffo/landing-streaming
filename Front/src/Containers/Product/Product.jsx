@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetails, getReviewsByProduct } from "../../Redux/actions";
 import { RESET_DETAILS, RESET_REVIEWS_BY_PRODUCT } from "../../Redux/actions-type";
-import { container, imgProduct, containerProps, detailsContainer, imgContainer } from "./Product.module.css";
+import { container, imgProduct, containerProps, detailsContainer, imgContainer, moreInfoContainer } from "./Product.module.css";
 import { Loading } from "../Loading/Loading";
 import { Details_Props } from "../Details Props/Details Props";
 import { More_Info_Product } from "../More Info Product/More Info Product";
@@ -60,7 +60,7 @@ const Product = () => {
                             }
                         </div>
                     </div>
-                    <div className={detailsContainer}>
+                    <div className={moreInfoContainer}>
                         <More_Info_Product
                             reviews={reviews}
                             description={product.description}
@@ -68,7 +68,6 @@ const Product = () => {
                             />
                     </div>
                 </div>
-                
             }
         </>
     );

@@ -1,23 +1,28 @@
-.container {
+.container, .detailsContainer, .moreInfoContainer, .imgContainer {
     display: flex;
-    flex-direction: column;
+}
+
+.container, .imgContainer {
     align-items: center;
+}
+
+.detailsContainer, .moreInfoContainer, .container {
+    gap: 2em;
+}
+
+.detailsContainer, .moreInfoContainer, .imgProduct { 
+    width: 100%;
 }
 
 .detailsContainer {
-    display: flex;
     flex-direction: row;
-    padding: 4rem 2rem;
-    width: 100%;
-    gap: 50px;
-    max-width: 1000px;
+}
+
+.moreInfoContainer, .container {
+    flex-direction: column;
 }
 
 .imgContainer {
-    display: flex;
-    align-items: center;
-    width: 50%;
-    position: relative;
     padding: 19px;
     -webkit-clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
     clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
@@ -31,32 +36,20 @@
 }
 
 .imgProduct {
-    width: 100%;
     padding: 40px;
     background-color: #0F161C;
 }
 
-.containerProps {
+.containerProps, .imgContainer {
     width: 50%;
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-    .detailsContainer {
-        padding: 2rem;
-    }
 }
 
 @media (max-width: 767px) {
     .detailsContainer {
-        padding: 3rem 1rem;
         flex-direction: column;
     }
 
-    .imgContainer {
-        width: 100%;
-    }
-
-    .containerProps {
+    .imgContainer, .containerProps {
         width: 100%;
     }
 }

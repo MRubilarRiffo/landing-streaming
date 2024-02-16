@@ -10,8 +10,7 @@
     z-index: 1;
     bottom: 30px;
     overflow: hidden;
-    margin-left: 2em;
-    border: 1px solid #ffbe183b;
+    border: 1px solid #45f8815b;
 }
 
 #container_img {
@@ -46,7 +45,6 @@
 
 @media (max-width: 767px) {
     #container_notification {
-        margin-left: 1em;
         bottom: 1em;
     }
 }

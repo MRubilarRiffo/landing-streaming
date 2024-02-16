@@ -1,0 +1,142 @@
+#form-checkout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding: 1.7rem 2rem;
+    border-radius: 3px;
+    border: 1px solid #262f39;
+}
+
+/* #form-checkout__cardNumber, */
+/* #form-checkout__expirationDate, */
+.containerInput_d545e68 {
+    position: relative;
+    -webkit-clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
+    height: 59.6px;
+}
+
+#form-checkout__expirationDate,
+#form-checkout__cardNumber,
+#form-checkout__securityCode {
+    height: 59.6px;
+}
+
+/* #form-checkout__cardNumber::after, */
+/* #form-checkout__expirationDate::after, */
+.containerInput_d545e68::after {
+    content: "";
+    position: absolute;
+    background-color: #262f39;
+    width: 60px;
+    height: 1px;
+    right: -21px;
+    bottom: 12px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.containerInput_d545e68 input,
+.containerInput_d545e68 select {
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 15px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    line-height: 1.75;
+    font-weight: 400;
+    outline: 0;
+    border: 1px solid #262f39;
+    color: #adb0bc;
+}
+
+.containerInput_d545e68 input::placeholder {
+    color: #adb0bc;
+}
+
+.containerRow_dd4w54 {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    width: 100%;
+}
+
+.containerRow_dd4w54 > div {
+    width: 50%;
+}
+
+#form-checkout__submit {
+    border: none;
+    font-size: 15px;
+    font-weight: 800;
+    font-family: 'Barlow', sans-serif;
+    width: 162.09px;
+    height: 59.6px;
+    background-color: #45f882;
+    transition: 0.5s background-color;
+    color: #0f161b;
+    letter-spacing: 1px;
+    -webkit-clip-path: polygon(100% 0, 100% 65%, 89% 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% 65%, 89% 100%, 0 100%, 0 0);
+}
+
+#form-checkout__submit:hover {
+    cursor: pointer;
+    background-color: #ffbe18;
+}
+
+#form-checkout__submit span {
+    display: inline-block;
+    animation: shake 0.8s ease infinite;
+}
+
+.verification {
+    display: none;
+}
+
+.select-multiple {
+    position: relative;
+    display: inline-block;
+}
+  
+.select-multiple__circle {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+}
+  
+  /* Cambiar el color del círculo cuando está seleccionado */
+.select-multiple.selected .select-multiple__circle {
+    background-color: #007bff;
+}
+  
+  /* Ocultar el select múltiple */
+.select-multiple select {
+    /* display: none; */
+}
+
+
+@keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(-3px);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+    75% {
+      transform: translateX(-2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+}

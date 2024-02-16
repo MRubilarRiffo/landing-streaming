@@ -4,6 +4,8 @@ const initialState = {
     products: [],
     details: null,
     reviewProduct: [],
+    submit_payment_form_succes: null,
+    submit_payment_form_failure: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +34,16 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 reviewProduct: []
+            };
+        case actionTypes.SUBMIT_PAYMENT_FORM_SUCCESS:
+            return {
+                ...state,
+                submit_payment_form_succes: action.payload
+            };
+        case actionTypes.SUBMIT_PAYMENT_FORM_FAILURE:
+            return {
+                ...state,
+                submit_payment_form_failure: action.payload
             };
         default:
             return state;

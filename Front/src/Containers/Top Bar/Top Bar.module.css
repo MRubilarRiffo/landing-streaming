@@ -4,7 +4,7 @@
     position: absolute;
     bottom: 0;
     overflow: hidden;
-    width: 100%;
+    width: 100vw;
     height: 25px;
     white-space: pre;
     background-color: #45F882;
@@ -14,14 +14,13 @@
     letter-spacing: 1px;
 }
   
-.marquee .wrapper {
+.wrapper {
     position: absolute;
-    overflow: hidden;
     width: 200%;
     animation: marquee 10s linear infinite;
 }
   
-.marquee .wrapper p {
+.wrapper p {
     float: left;
     width: 50%;
 }

@@ -16,20 +16,7 @@ const mercado_Pago = async (req, res, next) => {
 
         const { body } = req;
 
-        // console.log(body);
-
-        // payment.create({ body: {
-        //         token: "2d21c7a34a226196bb9c25648ab0c101",
-        //         issuer_id: "200",
-        //         installments: 6,
-        //         transaction_amount: 100,
-        //         description: '<DESCRIPTION>',
-        //         payment_method_id: 'master',
-        //         payer: {
-        //             email: 'm.rubilar1010@gmail.com',
-        //             identification: { type: 'RUT', number: '999999999' }
-        //         }
-        // } }).then(console.log).catch(console.log);
+        console.log(body);
 
         payment.create({ body })
             .then(console.log)

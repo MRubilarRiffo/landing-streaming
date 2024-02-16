@@ -1,9 +1,13 @@
 #root {
-  margin: 0 auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 2em;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  padding: 2em;
 }
 
 * {
@@ -33,4 +37,10 @@
   background: #45F882;
   color: #0F161B;
   text-shadow: none;
+}
+
+@media (max-width: 767px) {
+  #root {
+    padding: 3rem 1rem;
+  }
 }

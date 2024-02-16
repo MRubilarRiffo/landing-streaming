@@ -1,46 +1,70 @@
-.form {
+.form,
+.nameAndLastname {
     display: flex;
+    gap: 1.5em;
+}
+
+.form,
+.containerInput input {
+    border: 1px solid #262f39;
+}
+
+.form {
     flex-direction: column;
-    gap: 10px;
     padding: 1.7rem 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.148);
     border-radius: 3px;
 }
 
-.form h3 {
-    color: black;
-    text-align: left;
+.containerInput {
+    position: relative;
+    -webkit-clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
+    clip-path: polygon(100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 0);
+    height: 59.6px;
 }
 
-.form label {
-    color: black;
-    text-align: left;
-    font-size: 13px;
+.containerInput input {
+    display: block;
+    width: 100%;
+    background: transparent;
+    padding: 15px 25px !important;
+    font-family: 'Poppins', sans-serif;
+    font-size: inherit;
+    line-height: 1.75;
+    font-weight: 400;
+    outline: 0;
 }
 
-.form input {
-    all: initial;
-    border: 1px solid rgba(0, 0, 0, 0.148);
-    border-radius: 3px;
-    height: 30px;
-    padding: 5px 10px;
+.containerInput::after {
+    content: "";
+    position: absolute;
+    background-color: #262f39;
+    width: 60px;
+    height: 1px;
+    right: -21px;
+    bottom: 12px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
-.form input:focus {
-    border-color: #A8741A;
-}
-
-.form input:hover {
-    border-color: #A8741A;
+.containerInput input::placeholder {
+    color: #adb0bc;
 }
 
 .nameAndLastname {
-    display: flex;
     flex-direction: row;
-    gap: 10px;
 }
 
-.prop {
-    display: flex;
-    flex-direction: column;
+.nameAndLastname > div {
+    width: 50%;
+}
+
+@media (max-width: 767px) {
+    .nameAndLastname {
+        flex-direction: column;
+    }
+
+    .nameAndLastname > div {
+        width: 100%;
+    }
 }

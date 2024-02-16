@@ -1,6 +1,6 @@
-import { marquee, wrapper } from "./Marquee Effect.module.css";
+import { marquee, wrapper } from "./Top Bar.module.css";
 
-const Marquee_Effect = () => {
+const Top_Bar = () => {
     const texts = ['¡ PAGA EN HASTA 12 CUOTAS !', '+500 CLIENTES'].join('\t');
 
     return (
@@ -13,4 +13,4 @@ const Marquee_Effect = () => {
     );
 };
 
-export { Marquee_Effect };
+export { Top_Bar };

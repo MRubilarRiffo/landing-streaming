@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import { Home } from './Containers/Home/Home';
 import { useDispatch } from 'react-redux';
@@ -12,6 +12,9 @@ import { Notification } from './Containers/Notification/Notification'
 
 function App() {
     const dispatch = useDispatch();
+    const location = useLocation();
+
+    const path = location.pathname;
 
     useEffect(() => {
         dispatch(getProducts());
@@ -27,7 +30,7 @@ function App() {
                 <Route path='/admin' element={<Admin />} />
                 <Route path='/finalizar-pago' element={<Finish_Payment />} />
             </Routes>
-            <Notification />
+            {!path.includes('finalizar-pago') && <Notification />}
         </>
     );
 };

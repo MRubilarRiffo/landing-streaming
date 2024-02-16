@@ -1,4 +1,4 @@
-import { form, nameAndLastname, prop } from './Form Billing Details.module.css'
+import { form, nameAndLastname, containerInput } from './Form Billing Details.module.css'
 
 const Form_Billing_Details = ({ userData, setUserData }) => {
     const handleChange = ({ target: { name, value } }) => {
@@ -10,20 +10,38 @@ const Form_Billing_Details = ({ userData, setUserData }) => {
 
     return (
         <div className={form}>
-            <h3>Detalles de facturación</h3>
+            <h4>DETALLES DE FACTURACIÓN</h4>
             <div className={nameAndLastname}>
-                <div className={prop}>
-                    <label htmlFor="name"> Nombre </label>
-                    <input type="text" name="name" value={userData.name} onChange={handleChange} />
+                <div className={containerInput}>
+                    <input
+                        type='text'
+                        name='name'
+                        placeholder='Nombre *'
+                        required
+                        value={userData.name}
+                        onChange={handleChange}
+                        />
                 </div>
-                <div className={prop}>
-                    <label htmlFor="lastname"> Apellidos </label>
-                    <input type="text" name="lastname" value={userData.lastname} onChange={handleChange} />
+                <div className={containerInput}>
+                    <input
+                        type='text'
+                        name='lastname'
+                        placeholder='Apellidos *'
+                        required
+                        value={userData.lastname}
+                        onChange={handleChange}
+                        />
                 </div>
             </div>
-            <div className={prop}>
-                <label htmlFor="mail"> Correo electrónico </label>
-                <input type="text" name="mail" value={userData.mail} onChange={handleChange} />
+            <div className={containerInput}>
+                <input
+                    type='text'
+                    name='mail'
+                    placeholder='Correo Electrónico *'
+                    required
+                    value={userData.mail}
+                    onChange={handleChange}
+                    />
             </div>
         </div>
     );
