@@ -67,6 +67,21 @@
     width: 50%;
 }
 
+.container_ff4e82 {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5em;
+    width: 100%;
+}
+
+.container_ff4e82 > div:first-child {
+    width: 140px;
+}
+
+.container_ff4e82 > div:nth-child(2) {
+    width: calc(100% - 140px);
+}
+
 #form-checkout__submit {
     border: none;
     font-size: 15px;
@@ -92,36 +107,24 @@
     animation: shake 0.8s ease infinite;
 }
 
-.verification {
+.visible {
     display: none;
 }
 
-.select-multiple {
-    position: relative;
-    display: inline-block;
-}
-  
-.select-multiple__circle {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-}
-  
-  /* Cambiar el color del círculo cuando está seleccionado */
-.select-multiple.selected .select-multiple__circle {
-    background-color: #007bff;
-}
-  
-  /* Ocultar el select múltiple */
-.select-multiple select {
-    /* display: none; */
+#select-installments_r4e54qw {
+    height: auto;
 }
 
+#form-checkout__installments option {
+    padding: 15px 25px;
+    cursor: pointer;
+}
+
+#select-installments_r4e54qw option:checked,
+#select-installments_r4e54qw option:hover {
+    background-color: transparent; /* Cambiar al color deseado */
+    color: #45f882; /* Cambiar al color deseado */
+}
 
 @keyframes shake {
     0% {
@@ -138,5 +141,19 @@
     }
     100% {
       transform: translateX(0);
+    }
+}
+
+@media (max-width: 767px) {
+    .container_ff4e82 {
+        flex-direction: column;
+    }
+
+    #form-checkout__submit {
+        width: 100%;
+    }
+
+    .container_ff4e82 > div {
+        width: 100% !important;
     }
 }

@@ -1,13 +1,55 @@
 const { getProducts_h } = require('../../handlers/products/getProducts_h');
+const { whereClause } = require('../../helpers/whereClause');
+const { getTotalProducts } = require('../../handlers/products/getTotalProducts');
+const { includedClause } = require('../../helpers/includedClause');
 
 const getProducts = async (req, res, next) => {
     try {
-        const products = await getProducts_h();
-
-        products.error
-            ? res.status(400).send(products.error)
-            : res.json({ data: products });
+        const limit = 10;
+        const currentPage = req.query.page > 0 ? req.query.page : 1;
+        const offset = (currentPage - 1) * limit;
         
+        const filters = {
+            name: req.query.name,
+            slug: req.query.slug,
+            id: req.query.id
+        };
+
+        const where = whereClause(filters)
+
+        const sortOrder = req.query.sortOrder || 'asc';
+        let order = [
+            [ 'name' , sortOrder === 'desc' ? 'DESC' : 'ASC' ]
+        ];
+
+        const allowedFields = [ 'id', 'name', 'description', 'shortDescription', 'price', 'priceOffert', 'slug', 'averageRating', 'immediateDelivery', 'image', 'category', 'bulkPrice', 'createdAt', 'updatedAt' ];
+        const selectedFields = req.query.fields ? req.query.fields.split(',') : null;
+        const attributes = selectedFields && selectedFields.filter(field => allowedFields.includes(field));
+
+        const include = req.query.included ? includedClause(req.query.included) : [];
+        
+        const props = { where, order, limit, offset, attributes, include };
+
+        const products = await getProducts_h(props);
+
+        if (products.error) {
+            res.status(400).send(products.error);
+        } else {
+            const totalProducts = await getTotalProducts(props);
+
+            const totalPages = Math.ceil(totalProducts / limit);
+
+            const response = {
+                Metadata: {
+                    'Total Products': totalProducts,
+                    'Total Pages': totalPages,
+                    'Current Page': currentPage
+                },
+                Data: products
+            };
+
+            res.json(response);
+        };  
     } catch (error) {
         res.status(500).json({ error: 'Error al obtener productos' });
     };

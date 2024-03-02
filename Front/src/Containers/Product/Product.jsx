@@ -9,11 +9,11 @@ import { Details_Props } from "../Details Props/Details Props";
 import { More_Info_Product } from "../More Info Product/More Info Product";
 
 const Product = () => {
-    const { id } = useParams();
+    const { id, slug } = useParams();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getDetails(id));
+        dispatch(getDetails(id, slug));
         dispatch(getReviewsByProduct(id));
         return () => {
             dispatch({ type: RESET_DETAILS });
@@ -21,20 +21,22 @@ const Product = () => {
         };
     }, [id]);
 
-    const product = useSelector(state => state.details) || {};
+    const { Data = [] } = useSelector(state => state.details) || [];
     const reviews = useSelector(state => state.reviewProduct) || [];
-    
+
+    const product = Data[0] || null;
+
     const handleJsonParse = (bulkPrice) => {
         try {
             return JSON.parse(bulkPrice);
         } catch (error) {
-            return null
+            return null;
         };
     };
 
     return (
         <>
-            {Object.keys(product).length === 0
+            {!product
                 ? <Loading />
                 : <div className={container}>
                     <div className={detailsContainer}>

@@ -8,6 +8,8 @@ const Mercado_Pago = ({ userData, amount }) => {
     const dispatch = useDispatch();
 
     const [mp, setMp] = useState(null);
+    const [visible, setVisible] = useState(false);
+    const [countOptions, setCountOptions] = useState(1);
 
     useEffect(() => {
         const initializeMercadoPago = async () => {
@@ -86,6 +88,10 @@ const Mercado_Pago = ({ userData, amount }) => {
             tempOptions.appendChild(opt);
         });
 
+        if (elem.id == 'form-checkout__installments') {
+            setCountOptions(options.length);
+        };
+
         elem.appendChild(tempOptions);
     };
 
@@ -114,10 +120,14 @@ const Mercado_Pago = ({ userData, amount }) => {
                     updatePCIFieldsSettings(paymentMethod, cardNumberElement, securityCodeElement);
                     updateIssuer(paymentMethod, bin);
                     updateInstallments(paymentMethod, bin);
-                }
+                    setVisible(true);
+                } else {
+                    setVisible(false);
+                };
 
                 currentBin = bin;
             } catch (e) {
+                // Logica en caso de tarjeta inválida
                 console.error('error getting payment methods: ', e)
             }
         });
@@ -250,25 +260,38 @@ const Mercado_Pago = ({ userData, amount }) => {
             </style>
             <form id="form-checkout" onSubmit={createCardToken}>
                 <div id="form-checkout__cardNumber" className="container"></div>
-                <div id="form-checkout__expirationDate" className="container"></div>
-                <div id="form-checkout__securityCode" className="container"></div>
+
+                <div className="containerRow_dd4w54">
+                    <div id="form-checkout__expirationDate" className="container"></div>
+                    <div id="form-checkout__securityCode" className="container"></div>
+                </div>
                 
                 <div className="containerInput_d545e68">
                     <input type="text" id="form-checkout__cardholderName" placeholder="Titular de la tarjeta" />
                 </div>
 
-                <select id="form-checkout__issuer" name="issuer" defaultValue="">
-                    <option value="" disabled>Banco emisor</option>
-                </select>
-                <select id="form-checkout__installments" name="installments" defaultValue="">
-                    <option value="" disabled>Cuotas</option>
-                </select>
-                <select id="form-checkout__identificationType" name="identificationType" defaultValue="">
-                    <option value="" disabled>Tipo de documento</option>
-                </select>
+                <div className={visible ? "containerInput_d545e68" : "visible"}>
+                    <select id="form-checkout__issuer" name="issuer" defaultValue="">
+                        <option value="" disabled>Banco emisor</option>
+                    </select>
+                </div>
 
-                <div className="containerInput_d545e68">
-                    <input type="text" id="form-checkout__identificationNumber" name="identificationNumber" placeholder="Número do documento" />
+                <div id="select-installments_r4e54qw" className={visible ? "containerInput_d545e68" : "visible"}>
+                    <select size={countOptions} id="form-checkout__installments" name="installments" defaultValue="">
+                        <option value="" disabled>Cuotas</option>
+                    </select>
+                </div>
+
+                <div className={visible ? "container_ff4e82" : "visible"}>
+                    <div className={"containerInput_d545e68"}>
+                        <select id="form-checkout__identificationType" name="identificationType" defaultValue="">
+                            <option value="" disabled>Tipo de documento</option>
+                        </select>
+                    </div>
+
+                    <div className={visible ? "containerInput_d545e68" : "visible"}>
+                        <input type="text" id="form-checkout__identificationNumber" name="identificationNumber" placeholder="Número do documento" />
+                    </div>
                 </div>
 
                 <input id="form-checkout__email" name="email" type="hidden" value={userData.mail} />

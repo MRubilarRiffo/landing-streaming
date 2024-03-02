@@ -18,7 +18,6 @@ const calculateAverageRating = async (productId) => {
 
         return await updateProducts_h(productId, update);
     } catch (error) {
-        console.log(error);
         return error.message;
     };
 };
