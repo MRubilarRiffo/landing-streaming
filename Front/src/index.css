@@ -38,6 +38,14 @@ h1 {
   line-height: 1.1;
 }
 
+h2 {
+  font-size: 2.5em;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-right: 0em;
+  letter-spacing: 1.5px;
+}
+
 h3 {
   margin-block-start: 0px;
   margin-block-end: 0px;
@@ -63,11 +71,30 @@ h5 {
 input {
   padding-block: 0px;
   padding-inline: 0px;
+  height: 59.6px;
 }
 
 p {
   margin-block-start: 0px;
   margin-block-end: 0px;
+}
+
+button {
+  height: 59.6px;
+  border: none;
+  font-weight: 800;
+  font-size: 15px;
+  font-family: 'Barlow', sans-serif;
+  background-color: #45f882;
+  -webkit-clip-path: polygon(100% 0, 100% 65%, 89% 100%, 0 100%, 0 0);
+  clip-path: polygon(100% 0, 100% 65%, 89% 100%, 0 100%, 0 0);
+  transition: 0.5s background-color;
+  color: #0f161b;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 ::selection {
@@ -85,5 +112,11 @@ p {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 2em;
   }
 }

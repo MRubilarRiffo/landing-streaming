@@ -3,7 +3,8 @@
 .containerInput,
 .containerPrices,
 .seccionReview,
-.views {
+.views,
+.containerInputAndButtons {
     display: flex;
 }
 
@@ -15,16 +16,7 @@
 }
 
 .containerDetails {
-    flex-direction: column;
     text-align: left;
-}
-
-.containerDetails h2 {
-    font-size: 2.5em;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-right: 50px;
-    letter-spacing: 1.5px;
 }
 
 .containerPay,
@@ -34,7 +26,8 @@
     flex-direction: row;
 }
 
-.containerPay {
+.containerPay,
+.containerInputAndButtons {
     gap: 0.5em;
 }
 
@@ -62,17 +55,12 @@
 }
 
 .containerInput,
-.containerPay input,
-.buttonPay {
+.containerPay input {
     font-weight: 800;
 }
 
-.containerInput button,
-.buttonPay {
-    border: none;
-}
-
 .containerInput button {
+    color: #ffff;
     position: absolute;
     background-color: transparent;
     font-size: 12px;
@@ -84,11 +72,6 @@
     color: #ffbe18;
 }
 
-.containerInput button:hover,
-.buttonPay:hover {
-    cursor: pointer;
-}
-
 .containerInput button:first-child {
     left: 0;
 }
@@ -98,15 +81,19 @@
 }
 
 .containerPay input {
-    border-radius: 3px;
     background: #1b242e;
     border: 0.25px solid #282f36;
     width: 90px;
-    height: 50px;
+    height: 100%;
     font-size: 15px;
     text-align: center;
     -webkit-appearance: none;
     -moz-appearance: textfield;
+}
+
+.containerInputAndButtons,
+.containerDetails {
+    flex-direction: column;
 }
 
 .containerPay input::-webkit-inner-spin-button, 
@@ -125,7 +112,6 @@
 }
 
 .containerPrices span:nth-child(2),
-.buttonPay,
 .seccionReview {
     font-size: 15px;
 }
@@ -135,14 +121,7 @@
 }
 
 .buttonPay {
-    font-family: 'Barlow', sans-serif;
     width: 160px;
-    background-color: #45f882;
-    transition: 0.5s background-color;
-    color: #0f161b;
-    letter-spacing: 1px;
-    -webkit-clip-path: path("M8,0H152a8,8,0,0,1,8,8V33.63C160,37.36,140,53,140,53H8a8,8,0,0,1-8-8V8A8,8,0,0,1,8,0Z");
-    clip-path: path("M8,0H152a8,8,0,0,1,8,8V33.63C160,37.36,140,53,140,53H8a8,8,0,0,1-8-8V8A8,8,0,0,1,8,0Z");
 }
 
 .buttonPay:hover {
@@ -184,16 +163,6 @@
 @media (max-width: 767px) {
     .containerDetails {
         width: 100%;
-    }
-
-    .containerDetails h2 {
-        font-size: 2em;
-    }
-}
-
-@media (max-width: 1024px) {
-    .containerDetails h2 {
-        margin-right: 0px;
     }
 }
 

@@ -7,5 +7,13 @@ module.exports = (sequelize) => {
             primaryKey: true,
             autoIncrement: true,
         },
+        quantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        amount: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        }
     });
 };

@@ -20,6 +20,10 @@ conn.sync({ force: false })
 
     //     for (const license of data.licenses) {
     //         await conn.models.License.create(license);
+    //     };
+
+    //     for (const user of data.users) {
+    //         await conn.models.User.create(user);
     //     };        
     // })
     .then(() => {

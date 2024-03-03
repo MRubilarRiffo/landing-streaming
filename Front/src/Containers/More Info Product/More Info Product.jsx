@@ -33,8 +33,8 @@ const More_Info_Product = ({ reviews = [], description = "", countReview }) => {
                     ? <p className={descriptionContainer}>{description}</p>
                     : reviews.length > 0 &&
                         <div>
-                            {reviews.map((props, index) =>
-                                <Card_Reviews key={`review-${index}`} props={props} />
+                            {reviews.map((review, index) =>
+                                <Card_Reviews key={`review-${index}`} review={review} />
                             )}
                         </div>
                 }

@@ -52,3 +52,15 @@ export const submitPaymentForm = (formData) => {
         }
     };
 };
+
+// export const addCart = (productId, quantity) => {
+//     return async function (dispatch) {
+//         try {
+//             const response = await axios.post(`${API}/mercadopago/process_payment`, formData);
+
+//             return dispatch({ type: actionTypes.SUBMIT_PAYMENT_FORM_SUCCESS, payload: response.data });
+//         } catch (error) {
+//             console.log(error.response.data);
+//         }
+//     };
+// };

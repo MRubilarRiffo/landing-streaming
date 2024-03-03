@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { categoryContainer, poppins, seccionReview, views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay } from './Details Props.module.css';
+import { containerInputAndButtons, categoryContainer, poppins, seccionReview, views, eye, containerDetails, containerPay, containerInput, containerPrices, buttonPay } from './Details Props.module.css';
 import { format_Price } from '../../Functions/Format Price';
 import { getRandomNumber } from '../../Functions/Random Number';
 import { FaRegEye, FaMinus, FaPlus } from "react-icons/fa";
@@ -8,6 +8,17 @@ import { Star } from '../Star/Star';
 
 const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice, averageRating, countReview, shortDescription }) => {
     const [quantity, setQuantity] = useState(1);
+    const [randomNumber, setRandomNumber] = useState(getRandomNumber(15, 30));
+    
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setRandomNumber(getRandomNumber(15, 30));
+        }, 5000);
+
+        return () => clearInterval(intervalId);
+    }, []);
 
     const handleChangeQuantity = ({ target: { value } }) => {
         let parsedValue = parseInt(value, 10) || 1;
@@ -34,22 +45,16 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
         // };
     };
 
-    const [randomNumber, setRandomNumber] = useState(getRandomNumber(15, 30));
-    
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setRandomNumber(getRandomNumber(15, 30));
-        }, 5000);
-
-        return () => clearInterval(intervalId);
-    }, []);
-
-    const navigate = useNavigate();
-
     const handleFinishPayment = () => {
         navigate('/finalizar-pago', {
             state: { quantity: quantity, price: variablePrice || price, name: name }
         });
+    };
+
+    const handleAddCart = () => {
+        console.log(quantity);
+        console.log(variablePrice || price);
+        console.log(name);
     };
 
     return (
@@ -64,24 +69,26 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
                 <span>{format_Price(regularPrice)}</span>
             </div>
             {shortDescription.length > 0 && <p className={poppins}>{shortDescription}</p>}
-            <p className={`${views} ${poppins}`}><FaRegEye className={eye}/> {randomNumber} personas están viendo este producto</p>
-            <div className={containerPay}>
-                <div className={containerInput}>
-                    <button onClick={handleClickMinus}><FaMinus /></button>
-                    <button onClick={handleClickPlus}><FaPlus /></button>
-                    <input
-                        type='number'
-                        min={1}
-                        pattern='[0-9]*'
-                        value={quantity}
-                        onChange={handleChangeQuantity}
-                        />
+            <p className={`${views} ${poppins}`}><FaRegEye className={eye}/> {randomNumber} personas ven este producto</p>
+            <div className={containerInputAndButtons}>
+                <div className={containerPay}>
+                    <div className={containerInput}>
+                        <button onClick={handleClickMinus}><FaMinus /></button>
+                        <button onClick={handleClickPlus}><FaPlus /></button>
+                        <input
+                            type='number'
+                            min={1}
+                            pattern='[0-9]*'
+                            value={quantity}
+                            onChange={handleChangeQuantity}
+                            />
+                    </div>
+                    <button className={buttonPay} onClick={handleFinishPayment}>
+                        <span>COMPRAR AHORA</span>
+                    </button>
                 </div>
-                <button
-                    className={buttonPay}
-                    onClick={handleFinishPayment}
-                    >
-                    <span>COMPRAR AHORA</span>
+                <button className={buttonPay} onClick={handleAddCart}>
+                    <span>AGREGAR AL CARRITO</span>
                 </button>
             </div>
             <p className={poppins}><span className={categoryContainer}>Categoría:</span> {category}</p>

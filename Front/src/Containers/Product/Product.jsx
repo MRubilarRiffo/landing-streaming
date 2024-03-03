@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getDetails, getReviewsByProduct } from "../../Redux/actions";
-import { RESET_DETAILS, RESET_REVIEWS_BY_PRODUCT } from "../../Redux/actions-type";
+import { getDetails } from "../../Redux/actions";
+import { RESET_DETAILS } from "../../Redux/actions-type";
 import { container, imgProduct, containerProps, detailsContainer, imgContainer, moreInfoContainer } from "./Product.module.css";
 import { Loading } from "../Loading/Loading";
 import { Details_Props } from "../Details Props/Details Props";
@@ -14,17 +14,15 @@ const Product = () => {
 
     useEffect(() => {
         dispatch(getDetails(id, slug));
-        dispatch(getReviewsByProduct(id));
         return () => {
             dispatch({ type: RESET_DETAILS });
-            dispatch({ type: RESET_REVIEWS_BY_PRODUCT });
         };
     }, [id]);
 
     const { Data = [] } = useSelector(state => state.details) || [];
-    const reviews = useSelector(state => state.reviewProduct) || [];
 
     const product = Data[0] || null;
+    const reviews = product ? product.Reviews : [];
 
     const handleJsonParse = (bulkPrice) => {
         try {

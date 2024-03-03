@@ -43,6 +43,9 @@ fs.readdirSync(path.join(__dirname, '/models'))
 	User.hasOne(Cart);
 	Cart.belongsTo(User);
 
+	Cart.belongsToMany(Product, { through: 'CartProduct' });
+	Product.belongsToMany(Cart, { through: 'CartProduct' });
+
 module.exports = {
 	...sequelize.models,
 	conn: sequelize,
