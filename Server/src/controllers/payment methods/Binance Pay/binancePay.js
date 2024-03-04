@@ -40,7 +40,7 @@ const binancePay = async (req, res) => {
         const { status, data, errorMessage } = response.data;
 
         if (status === 'SUCCESS') {
-            res.json({
+            return res.json({
                 prepayId: data.prepayId,
                 qrcodeLink: data.qrcodeLink,
                 qrContent: data.qrContent,
@@ -49,11 +49,11 @@ const binancePay = async (req, res) => {
                 universalUrl: data.universalUrl
             });
         } else {
-            res.status(400).json({ error: errorMessage });
+            return res.status(400).json({ error: errorMessage });
         }
     } catch (error) {
         console.error('Error al crear el pedido: ', error.response);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        return res.status(500).json({ error: 'Error interno del servidor' });
     };
 };
 

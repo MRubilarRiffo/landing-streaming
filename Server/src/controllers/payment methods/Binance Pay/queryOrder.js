@@ -33,7 +33,7 @@ const queryOrder = async (req, res) => {
         const { status, data, errorMessage } = response.data;
 
         if (status === 'SUCCESS') {
-            res.json({
+            return res.json({
                 merchantId: data.merchantId,
                 prepayId: data.prepayId,
                 transactionId: data.transactionId,
@@ -48,12 +48,12 @@ const queryOrder = async (req, res) => {
                 createTime: data.createTime
             });
         } else {
-            res.status(400).json({ error: errorMessage });
+            return res.status(400).json({ error: errorMessage });
         }
 
     } catch (error) {
         console.error('Error al consultar el pedido: ', error.response);
-        res.status(500).json({ error: 'Error interno del servidor' });
+        return res.status(500).json({ error: 'Error interno del servidor' });
     };
 };
 

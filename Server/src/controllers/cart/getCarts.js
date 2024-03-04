@@ -1,17 +1,16 @@
-const { getProducts_h } = require('../../handlers/products/getProducts_h');
+const { getCarts_h } = require('../../handlers/cart/getCarts_h');
 const { whereClause } = require('../../helpers/whereClause');
-const { getTotalProducts } = require('../../handlers/products/getTotalProducts');
+const { getTotalCarts } = require('../../handlers/cart/getTotalCarts');
 const { includedClause } = require('../../helpers/includedClause');
 
-const getProducts = async (req, res) => {
+const getCarts = async (req, res) => {
     try {
         const limit = 10;
         const currentPage = req.query.page > 0 ? req.query.page : 1;
         const offset = (currentPage - 1) * limit;
         
         const filters = {
-            name: req.query.name,
-            slug: req.query.slug,
+            UserId: req.query.userid,
             id: req.query.id
         };
 
@@ -19,10 +18,10 @@ const getProducts = async (req, res) => {
 
         const sortOrder = req.query.sortOrder || 'asc';
         let order = [
-            [ 'name' , sortOrder === 'desc' ? 'DESC' : 'ASC' ]
+            [ 'id' , sortOrder === 'desc' ? 'DESC' : 'ASC' ]
         ];
 
-        const allowedFields = [ 'id', 'name', 'description', 'shortDescription', 'price', 'priceOffert', 'slug', 'averageRating', 'immediateDelivery', 'image', 'category', 'bulkPrice', 'createdAt', 'updatedAt' ];
+        const allowedFields = [ 'id', 'amount', 'UserId', 'createdAt', 'updatedAt' ];
         const selectedFields = req.query.fields ? req.query.fields.split(',') : null;
         const attributes = selectedFields && selectedFields.filter(field => allowedFields.includes(field));
 
@@ -30,29 +29,29 @@ const getProducts = async (req, res) => {
         
         const props = { where, order, limit, offset, attributes, include };
 
-        const products = await getProducts_h(props);
+        const carts = await getCarts_h(props);
 
-        if (products.error) {
-            return res.status(400).send(products.error);
+        if (carts.error) {
+            return res.status(400).send(carts.error);
         } else {
-            const totalProducts = await getTotalProducts(props);
+            const totalCarts = await getTotalCarts(props);
 
-            const totalPages = Math.ceil(totalProducts / limit);
+            const totalPages = Math.ceil(totalCarts / limit);
 
             const response = {
                 Metadata: {
-                    'Total Products': totalProducts,
+                    'Total Carts': totalCarts,
                     'Total Pages': totalPages,
                     'Current Page': currentPage
                 },
-                Data: products
+                Data: carts
             };
 
             return res.json(response);
         };  
     } catch (error) {
-        return res.status(500).json({ error: 'Error al obtener productos' });
+        return res.status(500).json({ error: 'Error al obtener carritos' });
     };
 };
 
-module.exports = { getProducts };
+module.exports = { getCarts };

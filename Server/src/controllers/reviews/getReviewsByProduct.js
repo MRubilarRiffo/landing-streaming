@@ -6,10 +6,13 @@ const getReviewsByProduct = async (req, res, next) => {
 
         const reviews = await getReviewsByProduct_h(id);
 
-        if (reviews.error) res.status(400).send(reviews.error);
-        else res.json(reviews);
+        if (reviews.error) {
+            return res.status(400).send(reviews.error);
+        } else {
+            return res.json(reviews);
+        };
     } catch (error) {
-        res.status(500).json({ error: 'Error al obtener las reviews' });
+        return res.status(500).json({ error: 'Error al obtener las reviews' });
     };
 };
 

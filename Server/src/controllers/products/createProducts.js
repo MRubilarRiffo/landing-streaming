@@ -11,10 +11,11 @@ const createProducts = async (req, res, next) => {
         const slug = name.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-');
         const product = await createProducts_h(name, description, price, priceOffert, slug);
 
-        !product
-            ? res.status(400).send(product.error)
-            : res.status(201).json({ data: product.dataValues });
-
+        if (!product) {
+            return res.status(400).send(product.error)
+        } else {
+            return res.status(201).json({ data: product.dataValues });
+        };
     } catch (error) {
         return res.status(500).json({ error: error.message });
     };

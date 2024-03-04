@@ -17,6 +17,10 @@ const whereClause = (filters) => {
         whereClause.id = parseInt(filters.id);
     };
 
+    if (filters.UserId) {
+        whereClause.UserId = parseInt(filters.UserId);
+    };
+
     if (filters.slug) {
         whereClause.slug = filters.slug;
     };

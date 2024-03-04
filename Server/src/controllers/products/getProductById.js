@@ -6,10 +6,13 @@ const getProductById = async (req, res, next) => {
 
         const product = await getProductById_h(id);
 
-        if (product.error) res.status(400).send(product.error);
-        else res.json(product);
+        if (product.error) {
+            return res.status(400).send(product.error);
+        } else {
+            return res.json(product);
+        };
     } catch (error) {
-        res.status(500).json({ error: 'Error al obtener el producto' });
+        return res.status(500).json({ error: 'Error al obtener el producto' });
     };
 };
 
