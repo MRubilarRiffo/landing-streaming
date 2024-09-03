@@ -1,0 +1,241 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    top: -210px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px #00000014;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 4 / 3.5;
+}
+
+.card:hover {
+    box-shadow: 0 8px 32px #0000003d;
+    cursor: pointer;
+
+    .name h3 {
+        animation: reboteAnimacion 1s ease infinite;
+    }
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 40%;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding: 20px 40px;
+}
+
+@keyframes reboteAnimacion {
+    0%, 100% {
+        transform: translateY(3px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    height: 60%;
+    width: 100%;
+    position: relative;
+    padding-top: 25px;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.line > div {
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% + 70px);
+    height: 80px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.price {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.7rem;
+}
+
+.newpurchases {
+    font-size: 1rem;
+    color: #fff;
+}
+
+.purchaseNotification {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3rem;
+    width: calc((3rem * 5) - (20px * 5) + 20px);
+    border-radius: 50px;
+}
+
+.containerNotification {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    padding-left: 20px;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+    margin-left: -20px;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.notification-1 {
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.notification > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    color: #fff;
+    transition: transform 0.3s ease-in-out, margin-left 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.moving-1 {
+    transform: scale(1.2);
+}
+
+.moving-2 {
+    margin-left: -30px;
+}
+
+.moving-3 {
+    margin-left: -20px;
+}
+
+.moving-4 {
+    margin-left: -10px;
+}
+
+.moving-5 {
+    margin-left: -500px;
+    opacity: 0;
+}
+
+.cardDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: auto;
+    background: linear-gradient(180deg, hsla(3, 90%, 96%, 0.722), hsla(0, 100%, 94%, 0));
+    border-radius: 16px;
+    padding: 24px 20px;
+    width: 100%;
+    color: var(--primary-color);
+}
+
+.containerList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    line-height: 1.1;
+    width: 100%;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+.description p {
+    min-height: 20px;
+}
+
+.noActiveMoreInfo {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.iconCheck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconArrow {
+    font-size: 23px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.btnPayNow {
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    height: 50px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+/* @media (max-width: 767px) {
+}
+
+@media (max-width: 1024px) {
+} */

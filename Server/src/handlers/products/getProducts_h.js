@@ -2,11 +2,12 @@ const { Product } = require('../../db');
 
 const getProducts_h = async (props) => {
     try {
-        const products = await Product.findAll(props);
+        const { count, rows } = await Product.findAndCountAll(props);
 
-        if (!products || products.length === 0) return { error: 'Productos no encontrados' };
+
+        if (!rows || rows.length === 0) return { error: 'Productos no encontrados' };
     
-        return products;
+        return { count, rows };
     } catch (error) {
         return error.message;
     }

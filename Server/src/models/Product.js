@@ -17,9 +17,16 @@ module.exports = (sequelize) => {
             defaultValue: ''
         },
         shortDescription: {
-            type: DataTypes.TEXT,
+            type: DataTypes.JSON,
             allowNull: true,
-            defaultValue: ''
+            defaultValue: [],
+            validate: {
+                isArray(value) {
+                    if (!Array.isArray(value)) {
+                        throw new Error('shortDescription debe ser un array.');
+                    }
+                }
+            }
         },
         price: {
             type: DataTypes.INTEGER,

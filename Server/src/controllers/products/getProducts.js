@@ -28,24 +28,24 @@ const getProducts = async (req, res) => {
 
         const include = req.query.included ? includedClause(req.query.included) : [];
         
-        const props = { where, order, limit, offset, attributes, include };
+        const props = { where, order, limit, offset, attributes, include };        
 
-        const products = await getProducts_h(props);
+        const { count, rows } = await getProducts_h(props);
+
+        const products = rows;
 
         if (products.error) {
             return res.status(400).send(products.error);
         } else {
-            const totalProducts = await getTotalProducts(props);
-
-            const totalPages = Math.ceil(totalProducts / limit);
+            const totalPages = Math.ceil(count / limit);
 
             const response = {
-                Metadata: {
-                    'Total Products': totalProducts,
+                metadata: {
+                    'Total Products': count,
                     'Total Pages': totalPages,
                     'Current Page': currentPage
                 },
-                Data: products
+                data: products
             };
 
             return res.json(response);

@@ -23,8 +23,7 @@ const Notification = () => {
     
         return () => clearInterval(notificationInterval);
     }, []);
-    
-    
+
     const generateRandomNumber = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
