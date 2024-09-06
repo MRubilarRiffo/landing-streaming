@@ -1,6 +1,5 @@
 const { getProducts_h } = require('../../handlers/products/getProducts_h');
 const { whereClause } = require('../../helpers/whereClause');
-const { getTotalProducts } = require('../../handlers/products/getTotalProducts');
 const { includedClause } = require('../../helpers/includedClause');
 
 const getProducts = async (req, res) => {
@@ -22,7 +21,7 @@ const getProducts = async (req, res) => {
             [ 'name' , sortOrder === 'desc' ? 'DESC' : 'ASC' ]
         ];
 
-        const allowedFields = [ 'id', 'name', 'description', 'shortDescription', 'price', 'priceOffert', 'slug', 'averageRating', 'immediateDelivery', 'image', 'category', 'bulkPrice', 'createdAt', 'updatedAt' ];
+        const allowedFields = [ 'id', 'name', 'description', 'features', 'previousPrice', 'salePrice', 'slug', 'averageRating', 'immediateDelivery', 'image', 'category', 'bulkPrice', 'createdAt', 'updatedAt' ];
         const selectedFields = req.query.fields ? req.query.fields.split(',') : null;
         const attributes = selectedFields && selectedFields.filter(field => allowedFields.includes(field));
 

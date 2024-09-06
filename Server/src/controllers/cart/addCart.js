@@ -33,11 +33,11 @@ const addCart = async (req, res) => {
             const matchedRule = bulkPrice.find(({ min = 1, max = Infinity}) => quantity >= min && quantity <= max);
 
             if (matchedRule) {
-                variablePrice = (product.priceOffert - matchedRule.discount);
+                variablePrice = (product.salePrice - matchedRule.discount);
             };
         };
 
-        let amount = quantity * variablePrice || product.priceOffert;
+        let amount = quantity * variablePrice || product.salePrice;
         
         let cart = await getCartByUserId_h(userId);
         
