@@ -16,35 +16,20 @@
     width: 60rem;
     height: 600px;
     position: absolute;
-    top: 50%;
+    top: 100vw;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: top 0.3s ease;
 }
 
-.closeBtn {
-    all: initial;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    color: var(--primary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    transition: transform 0.5s ease;
-}
-
-.closeBtn:hover {
-    transform: scale(1.1) rotate(180deg);
+.activeCard {
+    top: 50%;
+    transition: top 0.3s ease;
 }
 
 .content {
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     gap: 2.5rem;
     width: 100%;
     height: 100%;
@@ -123,6 +108,7 @@
     border-radius: 16px;
     padding: 0 0.5rem;
     transition: transform 0.3s ease;
+    text-align: center;
 }
 
 .btnBuy {
@@ -134,6 +120,12 @@
     position: relative;
     display: inline-block;
     animation: moveText 1s linear infinite;
+}
+
+.btnAddToCart {
+    background-color: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
 .btnBuy:hover,
@@ -157,12 +149,6 @@
     100% {
       transform: translateX(0);
     }
-}
-
-.btnAddToCart {
-    background-color: #fff;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
 }
 
 .variationContainer {
@@ -196,7 +182,8 @@
     cursor: pointer;
 }
 
-.variation:hover {
+.variation:hover,
+.activeVariation {
     background-color: var(--primary-color);
     color: #fff;
 }

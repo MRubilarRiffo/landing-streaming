@@ -1,0 +1,13 @@
+.viewersContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8rem;
+    width: 100%;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.viewersContainer svg {
+    font-size: 1.5rem;
+}

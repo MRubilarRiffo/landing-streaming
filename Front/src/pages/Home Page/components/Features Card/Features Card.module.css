@@ -1,0 +1,79 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: auto;
+    background: linear-gradient(180deg, hsla(3, 90%, 96%, 0.722), hsla(0, 100%, 94%, 0));
+    border-radius: 16px;
+    padding: 24px 20px;
+    width: 100%;
+    color: var(--primary-color);
+}
+
+.containerList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    line-height: 1.1;
+    width: 100%;
+}
+
+.description {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+}
+
+.description p {
+    min-height: 20px;
+}
+
+.noActiveMoreInfo {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.iconCheck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconArrow {
+    font-size: 23px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.btnPayNow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    border-radius: 50px;
+    height: 50px;
+    width: 100%;
+    font-size: 1rem;
+    color: #fff;
+    transition: transform 0.3s ease-in;
+}
+
+.btnPayNow:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary-color-hover);
+}
