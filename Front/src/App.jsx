@@ -1,26 +1,15 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/Home';
-import Header from './components/Header/Header';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { getProducts } from './redux/actions';
+import HomePage from './pages/Home Page/Home Page';
+import PaymentPage from './pages/Payment Page/Payment Page';
 
 function App() {
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(getProducts());
-	}, []);
-
 	return (
-		<>
-			<Header />
-			<Routes>
-				<Route path='*' element={<h3>Error</h3>} />
-				<Route path="/" element={<Home />} />
-			</Routes>
-		</>
+		<Routes>
+			<Route path='*' element={<h3>Error</h3>} />
+			<Route path="/" element={<HomePage />} />
+			<Route path="/finalizar-pago" element={<PaymentPage />} />
+		</Routes>
 	);
 };
 

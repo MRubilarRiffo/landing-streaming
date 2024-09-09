@@ -11,7 +11,40 @@ conn.sync({ force: false })
     //     const data = JSON.parse(rawData);
 
     //     for (const product of data.products) {
-    //         await conn.models.Product.create(product);
+    //         const { name, options } = product.variation;
+
+    //         const productObj = {
+    //             ...product,
+    //             variation: product.variation.active
+    //         };
+
+    //         const productCreate = await conn.models.Product.create(productObj);
+
+    //         const salePrices = options.map(option => option.salePrice);
+
+    //         const result = {
+    //             minPrice: Math.min(...salePrices),
+    //             maxPrice: Math.max(...salePrices)
+    //         };
+
+    //         const variation = await conn.models.Variation.create({
+    //             name,
+    //             ProductId: productCreate.id,
+    //             minPrice: result.minPrice,
+    //             maxPrice: result.maxPrice,
+    //         });
+
+    //         const bulkVariation = options.map(({ value, stock, previousPrice, salePrice }) => ({
+    //             value,
+    //             stock,
+    //             previousPrice,
+    //             salePrice,
+    //             ProductId: productCreate.id,
+    //             VariationId: variation.id,
+    //         }))
+
+    //         await conn.models.ProductVariation.bulkCreate(bulkVariation);
+
     //     };
 
     //     for (const review of data.reviews) {

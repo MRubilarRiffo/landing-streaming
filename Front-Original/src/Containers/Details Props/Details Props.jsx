@@ -6,7 +6,7 @@ import { getRandomNumber } from '../../Functions/Random Number';
 import { FaRegEye, FaMinus, FaPlus } from "react-icons/fa";
 import { Star } from '../Star/Star';
 
-const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice, averageRating, countReview, shortDescription }) => {
+const Details_Props = ({ name, category, price, regularPrice, description, bulkPrice, averageRating, countReview, features }) => {
     const [quantity, setQuantity] = useState(1);
     const [randomNumber, setRandomNumber] = useState(getRandomNumber(15, 30));
     
@@ -68,7 +68,7 @@ const Details_Props = ({ name, category, price, regularPrice, description, bulkP
                 <span>{format_Price(variablePrice || price)}</span>
                 <span>{format_Price(regularPrice)}</span>
             </div>
-            {shortDescription.length > 0 && <p className={poppins}>{shortDescription}</p>}
+            {features.length > 0 && <p className={poppins}>{features}</p>}
             <p className={`${views} ${poppins}`}><FaRegEye className={eye}/> {randomNumber} personas ven este producto</p>
             <div className={containerInputAndButtons}>
                 <div className={containerPay}>

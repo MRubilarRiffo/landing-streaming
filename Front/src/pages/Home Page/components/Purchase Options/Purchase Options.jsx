@@ -2,8 +2,7 @@ import styles from './Purchase Options.module.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getProductById } from '../../../../redux/actions';
-import { GET_PRODUCTS_BY_ID } from '../../../../redux/actions-type';
+import { addIdProductToCart, clearProductDetails, getProductById } from '../../../../redux/actions';
 import formatPrice from '../../../../functions/formatPrice';
 import Loader from '../../../../components/Loader/Loader';
 import ProductViewers from '../Product Viewers/Product Viewers';
@@ -14,28 +13,36 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
     const navigate = useNavigate();
 
     const [state, setState] = useState({
-        activeVariation: null,
+        selectedVariationId: null,
         activeCard: false,
-        price: null
+        price: null,
+        activeVariation: false
     })
 
     const { container, card, content, activeCard: activeCardStyle, 'row-1': row1, 'column-1': column1, 'column-2': column2 } = styles;
-    const { activeVariation, activeCard, price } = state;
+    const { selectedVariationId, activeCard, price, activeVariation } = state;
     const { salePrice, previousPrice } = price || { salePrice: 0, previousPrice: 0 };
-
+    
+    
     useEffect(() => {
         dispatch(getProductById(productId));
         setState(prevState => ({ ...prevState, activeCard: true }))
-        return () => dispatch({ type: GET_PRODUCTS_BY_ID, payload: {} });
+        return () => dispatch(clearProductDetails());
     }, [productId])
     
     const product = useSelector(({ productDetails }) => productDetails);
+
     
     useEffect(() => {
         const { salePrice, previousPrice } = product || null;
+        const activeVariation = product.variation || false;
         
         if (salePrice && previousPrice) {
-            setState(prevState => ({ ...prevState, price: { salePrice, previousPrice } }));
+            setState(prevState => ({
+                ...prevState,
+                price: { salePrice, previousPrice },
+                activeVariation
+            }));
         };
     }, [product]);
     
@@ -43,6 +50,7 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
         showShoppingCart: () => {
             setShowShoppingCart(true);
             setShowPurchaseOptions(false);
+            dispatch(addIdProductToCart(productId));
         },
         payNow: () => {
             const { salePrice, name } = product;
@@ -51,7 +59,7 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
         btnVariation: (salePrice, previousPrice, id) => {
             setState(prevState => ({
                 ...prevState,
-                activeVariation: id,
+                selectedVariationId: id,
                 price: { salePrice, previousPrice }
             }));
         }
@@ -60,6 +68,7 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
     const VariationView = () => {
         const variations = product.Variations[0].ProductVariations || [];
         const nameVariation = product.Variations[0].name || '';
+
         const { btnVariation } = handle;
 
         return (
@@ -69,7 +78,7 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
                     {variations.map(({ id, salePrice, previousPrice, value }) => (
                         <p
                             key={id}
-                            className={`${styles.variation} ${id === activeVariation && styles.activeVariation}`}
+                            className={`${styles.variation} ${id === selectedVariationId && styles.activeVariation}`}
                             onClick={() => btnVariation(salePrice, previousPrice, id)}
                         >
                             {value}
@@ -80,13 +89,21 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
         );
     };
 
+    console.log(product);
+    
     const PriceView = () => {
         const { priceContainer, salePrice: salePriceStyle, previousPrice: previousPriceStyle } = styles;
+        const { minPrice, maxPrice } = product.Variations[0] || { minPrice: 0, maxPrice: 0 };
 
         return (
             <div className={priceContainer}>
-                <p className={salePriceStyle}>{formatPrice(salePrice, 'Chile')}</p>
-                <p className={previousPriceStyle}>{formatPrice(previousPrice, 'Chile')}</p>
+                {activeVariation && !selectedVariationId
+                    ? <p className={salePriceStyle}>{`${formatPrice(minPrice, 'Chile')} - ${formatPrice(maxPrice, 'Chile')}`}</p>
+                    : <>
+                        <p className={salePriceStyle}>{formatPrice(salePrice, 'Chile')}</p>
+                        <p className={previousPriceStyle}>{formatPrice(previousPrice, 'Chile')}</p>
+                    </>
+                }
             </div>
         );
     };
@@ -98,7 +115,7 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
         return <p className={descriptionStyle}>{description}</p>;
     };
 
-    const PaymentButtons = () => {
+    const PaymentButtonsView = () => {
         const { btnAddToCart, btnBuy, 'row-2': row2 } = styles;
         const { showShoppingCart, payNow } = handle;
 
@@ -125,10 +142,10 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
                                 <PriceView />
                                 <DescriptionView />
                                 <ProductViewers />
-                                <VariationView />
+                                {activeVariation && <VariationView />}
                             </div>
                         </div>
-                        <PaymentButtons />
+                        <PaymentButtonsView />
                     </div>
                 }
             </div>

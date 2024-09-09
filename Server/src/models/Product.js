@@ -16,23 +16,23 @@ module.exports = (sequelize) => {
             allowNull: true,
             defaultValue: ''
         },
-        shortDescription: {
+        features: {
             type: DataTypes.JSON,
             allowNull: true,
             defaultValue: [],
             validate: {
                 isArray(value) {
                     if (!Array.isArray(value)) {
-                        throw new Error('shortDescription debe ser un array.');
+                        throw new Error('Features debe ser un array.');
                     }
                 }
             }
         },
-        price: {
+        previousPrice: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        priceOffert: {
+        salePrice: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
@@ -62,6 +62,10 @@ module.exports = (sequelize) => {
         bulkPrice: {
             type: DataTypes.JSON,
             defaultValue: null
-        }
+        },
+        variation: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
     });
 };

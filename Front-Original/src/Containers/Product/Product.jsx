@@ -55,7 +55,7 @@ const Product = () => {
                                     bulkPrice={handleJsonParse(product.bulkPrice)}
                                     averageRating={product.averageRating}
                                     countReview={reviews.length}
-                                    shortDescription={product.shortDescription}
+                                    features={product.features}
                                     />
                             }
                         </div>

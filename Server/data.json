@@ -8,18 +8,45 @@
     ],
     "products": [
         {
-            "name": "Spotify 3 meses",
-            "description": "",
-            "shortDescription": [
+            "name": "Grammarly Premium",
+            "description": "Mejora tu escritura con correcciones avanzadas de gramática, estilo y tono con Grammarly Premium.",
+            "features": [
+                "Correcciones de gramática, ortografía y estilo",
+                "Sugerencias para mejorar el tono y la claridad",
+                "Verificación de plagio",
+                "Personalización según el objetivo de tu escritura",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 11990,
+            "salePrice": 7990,
+            "slug": "grammarly-premium",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363695/grammarly_premium_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "2", "max": "4", "discount": "1000" },
+                { "min": "5", "max": "10", "discount": "2000" },
+                { "min": "11", "max": "", "discount": "3000" }
+            ],
+            "variation": {
+                "active": false,
+                "name": "",
+                "options": []
+            }
+        },
+        {
+            "name": "Spotify Premium",
+            "description": "Acceso ilimitado a música sin anuncios y sin conexión con Spotify Premium.",
+            "features": [
                 "Renovar la misma suscripción de por vida",
                 "Mantenga todos sus favoritos y listas",
                 "Entrega en tiempo real",
                 "Móvil, PC, compatible con 4K",
                 "Garantía, garantía de reembolso"
             ],
-            "price": 9490,
-            "priceOffert": 4990,
-            "slug": "spotify-3-meses",
+            "previousPrice": 9490,
+            "salePrice": 4990,
+            "slug": "spotify-premium",
             "immediateDelivery": true,
             "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363692/zhu1umjbc0jjts4zvddh.webp",
             "category": "Streaming",
@@ -27,108 +54,767 @@
                 { "min": "5", "max": "10", "discount": "1000" },
                 { "min": "11", "max": "20", "discount": "2000" },
                 { "min": "21", "max": "", "discount": "3000" }
-            ]
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 4990,
+                        "salePrice": 2990,
+                        "stock": 5
+                    },
+                    {
+                        "value": "3 meses",
+                        "previousPrice": 13990,
+                        "salePrice": 7990,
+                        "stock": 8
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 49900,
+                        "salePrice": 39900,
+                        "stock": 16
+                    }
+                ]
+            }
         },
         {
-            "name": "Spotify 6 meses",
-            "description": "Lorem ipsum dolor sit amet, consteur adipiscing Duis elementum solliciin is yaugue euismods Nulla ullaorper. Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.<br>Don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.<br>The generated Lorem Ipsum is therefore always free from repetition",
-            "shortDescription": [
-                "Renovar la misma suscripción de por vida",
-                "Mantenga todos sus favoritos y listas",
-                "Entrega en tiempo real"
+            "name": "Netflix Premium",
+            "description": "Disfruta de series y películas en alta calidad sin anuncios con Netflix Premium.",
+            "features": [
+                "Transmisión simultánea en 4 dispositivos",
+                "Calidad UHD y HDR",
+                "Contenido sin anuncios",
+                "Móvil, PC, compatible con 4K",
+                "Garantía, garantía de reembolso"
             ],
-            "price": 9490,
-            "priceOffert": 4990,
-            "slug": "spotify-6-meses",
+            "previousPrice": 15990,
+            "salePrice": 12990,
+            "slug": "netflix-premium",
             "immediateDelivery": true,
-            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363944/fia32jfuiqal8st9e6wf.webp",
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363693/netflix_image.webp",
+            "category": "Streaming",
+            "bulkPrice": [
+                { "min": "3", "max": "5", "discount": "2000" },
+                { "min": "6", "max": "10", "discount": "4000" },
+                { "min": "11", "max": "", "discount": "6000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 12990,
+                        "salePrice": 9990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "3 meses",
+                        "previousPrice": 35990,
+                        "salePrice": 29990,
+                        "stock": 6
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 159990,
+                        "salePrice": 129990,
+                        "stock": 3
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Disney+",
+            "description": "Accede a contenido exclusivo de Disney, Pixar, Marvel y más con Disney+.",
+            "features": [
+                "Transmisión simultánea en 4 dispositivos",
+                "Calidad UHD",
+                "Descargas ilimitadas",
+                "Compatible con móviles, PC y Smart TV",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 13990,
+            "salePrice": 9990,
+            "slug": "disney-plus",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363693/disney_plus_image.webp",
+            "category": "Streaming",
+            "bulkPrice": [
+                { "min": "3", "max": "6", "discount": "1500" },
+                { "min": "7", "max": "12", "discount": "3000" },
+                { "min": "13", "max": "", "discount": "4500" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 9990,
+                        "salePrice": 7990,
+                        "stock": 12
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 59990,
+                        "salePrice": 49990,
+                        "stock": 4
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 119990,
+                        "salePrice": 99990,
+                        "stock": 5
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Amazon Prime Video",
+            "description": "Películas, series y contenido exclusivo con Prime Video. Incluye acceso a Prime Music.",
+            "features": [
+                "Envíos gratis y rápidos con Prime",
+                "Contenido exclusivo y original",
+                "Calidad UHD y HDR",
+                "Acceso a Prime Music",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 11990,
+            "salePrice": 8990,
+            "slug": "amazon-prime-video",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363693/prime_video_image.webp",
+            "category": "Streaming",
+            "bulkPrice": [
+                { "min": "2", "max": "4", "discount": "1000" },
+                { "min": "5", "max": "10", "discount": "2000" },
+                { "min": "11", "max": "", "discount": "3000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 8990,
+                        "salePrice": 6990,
+                        "stock": 8
+                    },
+                    {
+                        "value": "3 meses",
+                        "previousPrice": 25990,
+                        "salePrice": 20990,
+                        "stock": 6
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 89990,
+                        "salePrice": 69990,
+                        "stock": 3
+                    }
+                ]
+            }
+        },
+        {
+            "name": "HBO Max",
+            "description": "Disfruta de las mejores series, películas y contenido exclusivo con HBO Max.",
+            "features": [
+                "Transmisión en 3 dispositivos simultáneos",
+                "Calidad HD y 4K",
+                "Descargas ilimitadas",
+                "Compatible con móviles, tabletas, PC y Smart TV",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 14990,
+            "salePrice": 11990,
+            "slug": "hbo-max",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/hbo_max_image.webp",
+            "category": "Streaming",
+            "bulkPrice": [
+                { "min": "3", "max": "5", "discount": "2500" },
+                { "min": "6", "max": "10", "discount": "5000" },
+                { "min": "11", "max": "", "discount": "7500" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 11990,
+                        "salePrice": 9990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "3 meses",
+                        "previousPrice": 35990,
+                        "salePrice": 29990,
+                        "stock": 8
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 149900,
+                        "salePrice": 119900,
+                        "stock": 4
+                    }
+                ]
+            }
+        },
+        {
+            "name": "YouTube Premium",
+            "description": "Accede a videos sin anuncios, reproducción en segundo plano y descargas con YouTube Premium.",
+            "features": [
+                "Videos sin anuncios",
+                "Reproducción en segundo plano",
+                "Acceso a YouTube Music",
+                "Descargas ilimitadas",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 7990,
+            "salePrice": 4990,
+            "slug": "youtube-premium",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/youtube_premium_image.webp",
             "category": "Streaming",
             "bulkPrice": [
                 { "min": "5", "max": "10", "discount": "1000" },
                 { "min": "11", "max": "20", "discount": "2000" },
                 { "min": "21", "max": "", "discount": "3000" }
-            ]
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 4990,
+                        "salePrice": 2990,
+                        "stock": 12
+                    },
+                    {
+                        "value": "3 meses",
+                        "previousPrice": 13990,
+                        "salePrice": 10990,
+                        "stock": 6
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 49900,
+                        "salePrice": 39900,
+                        "stock": 3
+                    }
+                ]
+            }
         },
         {
-            "name": "Spotify 12 meses",
-            "description": "Test test testTest test testTest test test",
-            "shortDescription": [],
-            "price": 9490,
-            "priceOffert": 4990,
-            "slug": "spotify-12-meses",
+            "name": "Apple Music",
+            "description": "Acceso ilimitado a millones de canciones y listas personalizadas con Apple Music.",
+            "features": [
+                "Calidad de audio sin pérdidas",
+                "Escucha sin conexión",
+                "Listas personalizadas y estaciones de radio",
+                "Compatible con móviles, PC y Smart TV",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 9490,
+            "salePrice": 5990,
+            "slug": "apple-music",
             "immediateDelivery": true,
-            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363945/jw7pwtuoaaza8ym7ogko.webp",
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/apple_music_image.webp",
             "category": "Streaming",
             "bulkPrice": [
-                { "min": "5", "max": "10", "discount": "1000" },
-                { "min": "11", "max": "20", "discount": "2000" },
-                { "min": "21", "max": "", "discount": "3000" }
-            ]
-        },
-        {
-            "name": "Hbo Max 6 meses",
-            "description": "Test test testTest test testTest test test",
-            "price": 4490,
-            "priceOffert": 14990,
-            "slug": "adobe-create-6-meses",
-            "immediateDelivery": true,
-            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707254339/afgglbqmhcsqaa9ypc5c.png",
-            "category": "Licencia",
-            "bulkPrice": [
-                { "min": "", "max": "10", "discount": "1000" },
-                { "min": "11", "max": "20", "discount": "2000" },
-                { "min": "21", "max": "", "discount": "3000" }
-            ]
-        },
-        {
-            "name": "Adobe Create 3 meses",
-            "description": "Test test testTest test testTest test test",
-            "price": 4490,
-            "priceOffert": 14990,
-            "slug": "adobe-create-3-meses",
-            "immediateDelivery": true,
-            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707256250/zh8kdwtcoa9cnzo4devz.png",
-            "category": "Licencia",
-            "bulkPrice": [
-                { "min": "", "max": "10", "discount": "1000" },
-                { "min": "11", "max": "20", "discount": "2000" },
-                { "min": "21", "max": "", "discount": "3000" }
-            ]
-        },
-        {
-            "name": "Adobe Create 6 meses",
-            "description": "Test test testTest test testTest test test",
-            "shortDescription": [
-                "Renovar la misma suscripción de por vida",
-                "Mantenga todos sus favoritos y listas",
-                "Entrega en tiempo real"
+                { "min": "3", "max": "5", "discount": "1000" },
+                { "min": "6", "max": "10", "discount": "2000" },
+                { "min": "11", "max": "", "discount": "3000" }
             ],
-            "price": 4490,
-            "priceOffert": 14990,
-            "slug": "adobe-create-6-meses",
-            "immediateDelivery": true,
-            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707256250/zh8kdwtcoa9cnzo4devz.png",
-            "category": "Licencia",
-            "bulkPrice": [
-                { "min": "", "max": "10", "discount": "1000" },
-                { "min": "11", "max": "20", "discount": "2000" },
-                { "min": "21", "max": "", "discount": "3000" }
-            ]
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 5990,
+                        "salePrice": 4990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "3 meses",
+                        "previousPrice": 16990,
+                        "salePrice": 14990,
+                        "stock": 6
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 59900,
+                        "salePrice": 49900,
+                        "stock": 4
+                    }
+                ]
+            }
         },
         {
-            "name": "Adobe Create 12 meses",
-            "description": "Test test testTest test testTest test test",
-            "price": 4490,
-            "priceOffert": 14990,
-            "slug": "adobe-create-12-meses",
+            "name": "Adobe Creative Cloud",
+            "description": "Acceso a todas las aplicaciones creativas de Adobe con Creative Cloud, incluyendo Photoshop, Illustrator, Premiere Pro y más.",
+            "features": [
+                "Acceso a más de 20 aplicaciones",
+                "Almacenamiento en la nube de 100GB",
+                "Actualizaciones automáticas",
+                "Compatible con Windows y Mac",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 52990,
+            "salePrice": 39990,
+            "slug": "adobe-creative-cloud",
             "immediateDelivery": true,
-            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707256250/zh8kdwtcoa9cnzo4devz.png",
-            "category": "Licencia",
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/adobe_cc_image.webp",
+            "category": "Software",
             "bulkPrice": [
-                { "min": "", "max": "10", "discount": "1000" },
-                { "min": "11", "max": "20", "discount": "2000" },
-                { "min": "21", "max": "", "discount": "3000" }
-            ]
+                { "min": "2", "max": "4", "discount": "5000" },
+                { "min": "5", "max": "10", "discount": "10000" },
+                { "min": "11", "max": "", "discount": "15000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Licencia",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 39990,
+                        "salePrice": 29990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 199990,
+                        "salePrice": 169990,
+                        "stock": 6
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 359990,
+                        "salePrice": 299990,
+                        "stock": 3
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Canva Pro",
+            "description": "Crea diseños profesionales con acceso completo a todas las herramientas y recursos de Canva Pro.",
+            "features": [
+                "Acceso a millones de fotos y plantillas premium",
+                "Crea contenido para redes sociales, presentaciones y más",
+                "Almacenamiento ilimitado en la nube",
+                "Compatible con todos los dispositivos",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 12990,
+            "salePrice": 8990,
+            "slug": "canva-pro",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/canva_pro_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "3", "max": "6", "discount": "1500" },
+                { "min": "7", "max": "12", "discount": "3000" },
+                { "min": "13", "max": "", "discount": "4500" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 8990,
+                        "salePrice": 6990,
+                        "stock": 8
+                    },
+                    {
+                        "value": "3 meses",
+                        "previousPrice": 25990,
+                        "salePrice": 20990,
+                        "stock": 4
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 89990,
+                        "salePrice": 74990,
+                        "stock": 5
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Dropbox Plus",
+            "description": "Almacena, sincroniza y comparte archivos con 2TB de espacio en la nube y funcionalidades avanzadas con Dropbox Plus.",
+            "features": [
+                "2TB de almacenamiento en la nube",
+                "Sincronización automática entre dispositivos",
+                "Acceso sin conexión",
+                "Restauración de archivos eliminados",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 15990,
+            "salePrice": 11990,
+            "slug": "dropbox-plus",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/dropbox_plus_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "3", "max": "5", "discount": "2000" },
+                { "min": "6", "max": "10", "discount": "4000" },
+                { "min": "11", "max": "", "discount": "6000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 11990,
+                        "salePrice": 9990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 59990,
+                        "salePrice": 49990,
+                        "stock": 6
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 119990,
+                        "salePrice": 99990,
+                        "stock": 4
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Microsoft 365",
+            "description": "Acceso completo a las aplicaciones de Microsoft Office como Word, Excel y PowerPoint, además de 1TB de almacenamiento en la nube.",
+            "features": [
+                "Incluye Word, Excel, PowerPoint y más",
+                "1TB de almacenamiento en OneDrive",
+                "Acceso desde cualquier dispositivo",
+                "Colaboración en tiempo real",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 23990,
+            "salePrice": 18990,
+            "slug": "microsoft-365",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/microsoft_365_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "2", "max": "5", "discount": "2000" },
+                { "min": "6", "max": "10", "discount": "4000" },
+                { "min": "11", "max": "", "discount": "6000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 18990,
+                        "salePrice": 14990,
+                        "stock": 15
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 99900,
+                        "salePrice": 79900,
+                        "stock": 8
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 179900,
+                        "salePrice": 149900,
+                        "stock": 5
+                    }
+                ]
+            }
+        },
+        {
+            "name": "NordVPN",
+            "description": "Protege tu privacidad en línea y accede a contenido sin restricciones con NordVPN.",
+            "features": [
+                "Más de 5000 servidores en todo el mundo",
+                "Protección contra malware y anuncios",
+                "No se guardan registros de actividad",
+                "Compatible con múltiples dispositivos",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 15990,
+            "salePrice": 9990,
+            "slug": "nordvpn",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/nordvpn_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "3", "max": "6", "discount": "1500" },
+                { "min": "7", "max": "12", "discount": "3000" },
+                { "min": "13", "max": "", "discount": "4500" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 9990,
+                        "salePrice": 7990,
+                        "stock": 20
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 49990,
+                        "salePrice": 39990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 99900,
+                        "salePrice": 74900,
+                        "stock": 7
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Google One",
+            "description": "Almacenamiento ampliado en la nube para Google Drive, Gmail y Google Photos con Google One.",
+            "features": [
+                "100GB, 200GB, o 2TB de almacenamiento",
+                "Acceso a Google Experts",
+                "Compartible con la familia (hasta 5 miembros)",
+                "Copia de seguridad automática del dispositivo",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 14990,
+            "salePrice": 9990,
+            "slug": "google-one",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/google_one_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "2", "max": "4", "discount": "1000" },
+                { "min": "5", "max": "10", "discount": "2000" },
+                { "min": "11", "max": "", "discount": "3000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Almacenamiento",
+                "options": [
+                    {
+                        "value": "100GB",
+                        "previousPrice": 9990,
+                        "salePrice": 7990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "200GB",
+                        "previousPrice": 14990,
+                        "salePrice": 11990,
+                        "stock": 6
+                    },
+                    {
+                        "value": "2TB",
+                        "previousPrice": 29990,
+                        "salePrice": 24990,
+                        "stock": 4
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Zoom Pro",
+            "description": "Aumenta las capacidades de tus reuniones con Zoom Pro, permitiendo más participantes y reuniones sin límite de tiempo.",
+            "features": [
+                "Reuniones ilimitadas hasta 100 participantes",
+                "Duración ilimitada de las reuniones",
+                "Almacenamiento en la nube para grabaciones",
+                "Herramientas avanzadas de colaboración",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 19990,
+            "salePrice": 14990,
+            "slug": "zoom-pro",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363694/zoom_pro_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "3", "max": "6", "discount": "2000" },
+                { "min": "7", "max": "12", "discount": "4000" },
+                { "min": "13", "max": "", "discount": "6000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Licencia",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 14990,
+                        "salePrice": 11990,
+                        "stock": 20
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 79990,
+                        "salePrice": 64990,
+                        "stock": 8
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 149990,
+                        "salePrice": 119990,
+                        "stock": 5
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Duolingo Plus",
+            "description": "Aprende un nuevo idioma sin anuncios y con acceso a características exclusivas con Duolingo Plus.",
+            "features": [
+                "Aprendizaje sin anuncios",
+                "Descarga lecciones para estudiar offline",
+                "Vidas ilimitadas para practicar sin interrupciones",
+                "Rendimiento detallado y acceso a pruebas",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 8990,
+            "salePrice": 5990,
+            "slug": "duolingo-plus",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363695/duolingo_plus_image.webp",
+            "category": "Educación",
+            "bulkPrice": [
+                { "min": "3", "max": "5", "discount": "500" },
+                { "min": "6", "max": "10", "discount": "1000" },
+                { "min": "11", "max": "", "discount": "1500" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 5990,
+                        "salePrice": 4990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 29990,
+                        "salePrice": 24990,
+                        "stock": 8
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 59900,
+                        "salePrice": 49900,
+                        "stock": 5
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Skillshare Premium",
+            "description": "Accede a miles de cursos en línea sobre diseño, negocios, tecnología y más con Skillshare Premium.",
+            "features": [
+                "Acceso ilimitado a cursos y talleres",
+                "Sin anuncios durante las lecciones",
+                "Apoyo de instructores expertos",
+                "Descargas para ver offline",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 14990,
+            "salePrice": 9990,
+            "slug": "skillshare-premium",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363695/skillshare_premium_image.webp",
+            "category": "Educación",
+            "bulkPrice": [
+                { "min": "3", "max": "5", "discount": "1000" },
+                { "min": "6", "max": "10", "discount": "2000" },
+                { "min": "11", "max": "", "discount": "3000" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Suscripción",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 9990,
+                        "salePrice": 7990,
+                        "stock": 18
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 49990,
+                        "salePrice": 39990,
+                        "stock": 10
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 99900,
+                        "salePrice": 79900,
+                        "stock": 7
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Figma Pro",
+            "description": "Diseña y colabora en proyectos de UI/UX con Figma Pro, ideal para equipos que trabajan en tiempo real.",
+            "features": [
+                "Colaboración en tiempo real con tu equipo",
+                "Herramientas avanzadas de diseño UI/UX",
+                "Historial de versiones y control de acceso",
+                "Exportación de archivos en varios formatos",
+                "Garantía, garantía de reembolso"
+            ],
+            "previousPrice": 17990,
+            "salePrice": 13990,
+            "slug": "figma-pro",
+            "immediateDelivery": true,
+            "image": "https://res.cloudinary.com/dctl1zamk/image/upload/v1707363695/figma_pro_image.webp",
+            "category": "Software",
+            "bulkPrice": [
+                { "min": "3", "max": "5", "discount": "1500" },
+                { "min": "6", "max": "10", "discount": "3000" },
+                { "min": "11", "max": "", "discount": "4500" }
+            ],
+            "variation": {
+                "active": true,
+                "name": "Licencia",
+                "options": [
+                    {
+                        "value": "1 mes",
+                        "previousPrice": 13990,
+                        "salePrice": 11990,
+                        "stock": 15
+                    },
+                    {
+                        "value": "6 meses",
+                        "previousPrice": 79990,
+                        "salePrice": 64990,
+                        "stock": 8
+                    },
+                    {
+                        "value": "12 meses",
+                        "previousPrice": 149990,
+                        "salePrice": 119990,
+                        "stock": 6
+                    }
+                ]
+            }
         }
     ],
     "reviews": [

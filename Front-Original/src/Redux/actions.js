@@ -6,7 +6,7 @@ const API = 'http://localhost:3001/api';
 
 export const getProducts = () => {
     return async function (dispatch) {
-        const fields = 'id,name,price,priceOffert,averageRating,category,image,slug'
+        const fields = 'id,name,salePrice,previousPrice,averageRating,category,image,slug'
         try {
             const response = await axios.get(`${API}/products?fields=${fields}`);
             return dispatch({ type: actionTypes.GET_PRODUCTS, payload: response.data });

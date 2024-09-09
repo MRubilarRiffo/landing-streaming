@@ -1,0 +1,57 @@
+.billingDetailsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.5rem;
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    border-radius: 3px;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.billingDetailsForm > div {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.nameAndLastname > div {
+    width: 50%;
+}
+
+.labelAndInfo {
+    position: relative;
+}
+
+.labelAndInfo label {
+    position: absolute;
+    top: -11px;
+    left: 10px;
+    width: auto;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 13px;
+}
+
+.error {
+    position: absolute;
+    top: -11px;
+    right: 10px;
+    width: auto;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 13px;
+    color: red;
+}
+  
+@media (max-width: 1023px) {
+    .billingDetailsForm > div {
+        flex-direction: column;
+    }
+
+    .nameAndLastname > div {
+        width: 100%;
+    }
+}
