@@ -1,7 +1,6 @@
 import styles from './Product Card.module.css';
 import formatPrice from '../../../../functions/formatPrice';
-import { useNavigate } from 'react-router-dom';
-import { useCallback, useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import randomNumber from '../../../../functions/randomNumber';
 
 const namesWithColors = [
@@ -49,47 +48,66 @@ const namesWithColors = [
 
 const nameRandom = () => namesWithColors[Math.floor(Math.random() * namesWithColors.length)];
 
+const PriceView = memo(({ product }) => {
+    const { price } = styles;
+    const { variation, salePrice } = product || { variation: false, salePrice: 0 };
+    const { minPrice, maxPrice } = product.Variations[0] || { minPrice: 0, maxPrice: 0 };
+    
+    return (
+        <div className={price}>
+            {variation === true
+            ? <p>{`${formatPrice(minPrice, 'Chile')} - ${formatPrice(maxPrice, 'Chile')}`}</p>
+            : <p>{formatPrice(salePrice, 'Chile')}</p>}
+        </div>
+    );
+});
+
 const ProductCard = ({ product }) => {
-    const navigate = useNavigate();
-
-    const handleClick = useCallback(() => {
-        navigate(`/${product.slug}/${product.id}`, { state: product });
-    }, [navigate, product]);
-
-    const [newPurchases, setNewPurchases] = useState(() => Array(5).fill().map(nameRandom));
-    const [moving, setMoving] = useState(false);
-    const [minutesRandom, setMinutesRandom] = useState(randomNumber(3, 59));
+    const [state, setState] = useState({
+        newPurchases: Array(5).fill().map(nameRandom),
+        moving: false,
+        minutesRandom: randomNumber(3, 59),
+    });
 
     useEffect(() => {
         const notificationInterval = setInterval(() => {
-            setMinutesRandom(randomNumber(3, 59));
-            setMoving(true);
-            setNewPurchases(prevPurchases => [...prevPurchases.slice(1), nameRandom()]);
-            setTimeout(() => setMoving(false), 300);
+            setState(prevState => ({
+                ...prevState,
+                minutesRandom: randomNumber(3, 59),
+                moving: true,
+                newPurchases: [...prevState.newPurchases.slice(1), nameRandom()],
+            }));
+            setTimeout(() => setState(prevState => ({
+                ...prevState,
+                moving: false,
+            })), 300);
         }, randomNumber(2000, 8000));
-    
+        
         return () => clearInterval(notificationInterval);
     }, []);
 
+    const { newPurchases, moving, minutesRandom } = state;
+    const { card, name, info, newpurchases, line, purchaseNotification, containerNotification, notification } = styles;
+
     return (
-        <div className={styles.card} onClick={handleClick}>
-            <div className={styles.name}>
+        <div className={card}>
+            <div className={name}>
                 <h3>{product.name}</h3>
             </div>
-            <div className={styles.info}>
-                <div className={styles.newpurchases}>
+            <div className={info}>
+                <div className={newpurchases}>
                     {`${newPurchases[newPurchases.length - 1].name} compró hace ${minutesRandom} minutos.`}
                 </div>
-                <div className={styles.price}>{formatPrice(product.salePrice, 'Chile')}</div>
-                <div className={styles.line}>
+                <PriceView product={product} />
+                <div className={line}>
                     <div/>
                 </div>
-                <div className={styles.purchaseNotification}>
-                    <div className={styles.containerNotification}>
+                <div className={purchaseNotification}>
+                    <div className={containerNotification}>
                         {newPurchases.map(({ name, color }, index) => (
                             <div
                                 key={index}
-                                className={`${styles.notification} ${index === 0 ? styles['notification-1'] : ''}`}>
+                                className={`${notification} ${index === 0 ? styles['notification-1'] : ''}`}>
                                 <div
                                     style={{ backgroundColor: color }}
                                     className={`${moving ? styles[`moving-${newPurchases.length - index}`] : ''}`}>

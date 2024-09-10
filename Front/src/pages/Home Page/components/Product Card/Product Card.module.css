@@ -11,7 +11,6 @@
 
 .card:hover {
     box-shadow: 0 8px 32px #0000003d;
-    cursor: pointer;
 
     .name h3 {
         animation: reboteAnimacion 1s ease infinite;
