@@ -4,7 +4,7 @@ const { includedClause } = require('../../helpers/includedClause');
 
 const getProducts = async (req, res) => {
     try {
-        const limit = 10;
+        const limit = req.query.limit > 0 ? req.query.limit : 10;
         const currentPage = req.query.page > 0 ? req.query.page : 1;
         const offset = (currentPage - 1) * limit;
         
@@ -27,11 +27,9 @@ const getProducts = async (req, res) => {
 
         const include = req.query.included ? includedClause(req.query.included) : [];
         
-        const props = { where, order, limit, offset, attributes, include };        
+        const props = { where, order, limit, offset, attributes, include };
 
-        const { count, rows } = await getProducts_h(props);
-
-        const products = rows;
+        const { count, rows: products } = await getProducts_h(props);
 
         if (products.error) {
             return res.status(400).send(products.error);

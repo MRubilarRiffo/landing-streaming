@@ -1,4 +1,4 @@
-const { Product, License, Review, Cart, Order, User, CartProduct } = require("../db");
+const { Product, License, Review, Cart, Order, User, CartProduct, Variation, ProductVariation } = require("../db");
 
 const includedClause = (included) => {
     const allowedIncluded = [
@@ -8,6 +8,9 @@ const includedClause = (included) => {
         { text: 'cart', table: Cart },
         { text: 'order', table: Order },
         { text: 'user', table: User },
+        { text: 'cartProduct', table: CartProduct },
+        { text: 'variation', table: Variation },
+        { text: 'productVariation', table: ProductVariation }
     ];
     
     const selectedIncluded = included.split(',');

@@ -46,3 +46,22 @@ export const addIdProductToCart = (productId) => {
         return dispatch({ type: actionTypes.ADD_ID_PRODUCT_TO_CART, payload: productId });
     };
 };
+
+export const addProductToTemporalCart = (productId, variationId, quantity) => {
+    const products = [{ productId, variationId, quantity }];
+
+    console.log(products);
+    return async function (dispatch) {
+        try {
+            const response = await axios({
+                method: 'POST',
+                url: `${API}/prices/calculate-total`,
+                data: { products }
+            });
+
+            return dispatch({ type: actionTypes.GET_PRODUCTS_BY_ID, payload: response.data });
+        } catch (error) {
+            console.log(error.response.data);
+        };
+    };
+};

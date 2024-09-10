@@ -14,11 +14,13 @@ const HomePage = () => {
 		dispatch(getProducts());
 	}, []);
 
-    const { data } = useSelector((state) => state.products);
+    const products = useSelector(({ products }) => products.data) || [];
+
+    const { loader, card, cards, info, texts, line, home } = styles;
     
-    if (!data) {
+    if (products.length === 0) {
         return (
-            <div className={styles.loader}>
+            <div className={loader}>
                 <Loader />
             </div>
         );
@@ -27,17 +29,16 @@ const HomePage = () => {
     return (
         <>
             <Header />
-            <div className={styles.home}>
-                <div className={styles.info}>
-                    <div className={styles.texts}>
+            <div className={home}>
+                <div className={info}>
+                    <div className={texts}>
                         <h2>Comparta la suscripción premium más barato en GamsGo</h2>
                     </div>
-
-                    <div className={styles.line}></div>
+                    <div className={line}></div>
                 </div>
-                <div className={styles.cards}>
-                    {data.map((product) => (
-                        <div key={product.id} className={styles.card}>
+                <div className={cards}>
+                    {products.map((product) => (
+                        <div key={product.id} className={card}>
                             <ProductCard  product={product} />
                             <FeaturesCard feature={product.features} productId={product.id} />
                         </div>

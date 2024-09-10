@@ -4,18 +4,22 @@ import { useEffect, useState } from 'react';
 import { GoEye } from 'react-icons/go';
 
 const ProductViewers = () => {
-    const [viewers, setViewers] = useState(randomNumber(10, 30));
+    const [state, setState] = useState({ viewers: randomNumber(18, 30) });
+
+    const { viewers } = state;
+    const { viewersContainer } = styles;
 
     useEffect (() => {
         const viewersInterval = setInterval(() => {
-            setViewers(randomNumber(10, 30));
-        }, randomNumber(4000, 10000));
+            setState(prevState => ({ ...prevState, viewers: randomNumber(18, 30) }));
+        }, randomNumber(3000, 7000));
 
         return () => clearInterval(viewersInterval);
     }, [])
 
+
     return (
-        <div className={styles.viewersContainer}>
+        <div className={viewersContainer}>
             <GoEye />
             <p>{viewers} personas están viendo este producto ahora.</p>
         </div>

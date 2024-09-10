@@ -5,6 +5,7 @@ const initialState = {
     productDetails: {},
     cartIds: [],
     cartProducts: [],
+    temporalCart: {}
 };
 
 const reducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 cartIds: [...state.cartIds, action.payload]
+            };
+        case actionTypes.ADD_PRODUCT_TO_TEMPORAL_CART:
+            return {
+                ...state,
+                temporalCart: action.payload
             };
         default:
             return state;

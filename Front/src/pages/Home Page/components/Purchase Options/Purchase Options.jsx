@@ -2,7 +2,7 @@ import styles from './Purchase Options.module.css';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { addIdProductToCart, clearProductDetails, getProductById } from '../../../../redux/actions';
+import { addIdProductToCart, clearProductDetails, getProductById, addProductToTemporalCart } from '../../../../redux/actions';
 import formatPrice from '../../../../functions/formatPrice';
 import Loader from '../../../../components/Loader/Loader';
 import ProductViewers from '../Product Viewers/Product Viewers';
@@ -15,12 +15,13 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
     const [state, setState] = useState({
         selectedVariationId: null,
         activeCard: false,
+        activeVariation: false,
         price: null,
-        activeVariation: false
+        quantity: 1
     })
 
     const { container, card, content, activeCard: activeCardStyle, 'row-1': row1, 'column-1': column1, 'column-2': column2 } = styles;
-    const { selectedVariationId, activeCard, price, activeVariation } = state;
+    const { selectedVariationId, activeCard, price, activeVariation, quantity } = state;
     const { salePrice, previousPrice } = price || { salePrice: 0, previousPrice: 0 };
     
     
@@ -31,17 +32,22 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
     }, [productId])
     
     const product = useSelector(({ productDetails }) => productDetails);
-
     
     useEffect(() => {
         const { salePrice, previousPrice } = product || null;
-        const activeVariation = product.variation || false;
+        const activeVariation = product?.variation || false;
+        
+        let variationId = null;
+        if (activeVariation) {
+            variationId = product?.Variations[0]?.ProductVariations[0]?.id || null;
+        };
         
         if (salePrice && previousPrice) {
             setState(prevState => ({
                 ...prevState,
                 price: { salePrice, previousPrice },
-                activeVariation
+                activeVariation,
+                selectedVariationId: variationId
             }));
         };
     }, [product]);
@@ -53,8 +59,8 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
             dispatch(addIdProductToCart(productId));
         },
         payNow: () => {
-            const { salePrice, name } = product;
-            navigate('/finalizar-pago', { state: { quantity: 1, salePrice, name } })
+            dispatch(addProductToTemporalCart(productId, selectedVariationId, quantity));
+            // navigate('/finalizar-pago');
         },
         btnVariation: (salePrice, previousPrice, id) => {
             setState(prevState => ({
@@ -88,22 +94,22 @@ const PurchaseOptions = ({ setShowPurchaseOptions, productId, setShowShoppingCar
             </div>
         );
     };
-
-    console.log(product);
     
     const PriceView = () => {
         const { priceContainer, salePrice: salePriceStyle, previousPrice: previousPriceStyle } = styles;
-        const { minPrice, maxPrice } = product.Variations[0] || { minPrice: 0, maxPrice: 0 };
+        // const { minPrice, maxPrice } = product.Variations[0] || { minPrice: 0, maxPrice: 0 };
 
         return (
             <div className={priceContainer}>
-                {activeVariation && !selectedVariationId
+                <p className={salePriceStyle}>{formatPrice(salePrice, 'Chile')}</p>
+                <p className={previousPriceStyle}>{formatPrice(previousPrice, 'Chile')}</p>
+                {/* {activeVariation && !selectedVariationId
                     ? <p className={salePriceStyle}>{`${formatPrice(minPrice, 'Chile')} - ${formatPrice(maxPrice, 'Chile')}`}</p>
                     : <>
                         <p className={salePriceStyle}>{formatPrice(salePrice, 'Chile')}</p>
                         <p className={previousPriceStyle}>{formatPrice(previousPrice, 'Chile')}</p>
                     </>
-                }
+                } */}
             </div>
         );
     };

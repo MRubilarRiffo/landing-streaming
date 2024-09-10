@@ -5,6 +5,7 @@ const binancepayRoutes = require('./binancepayRoute');
 const reviewsRoutes = require('./reviewsRoute');
 const cartRoutes = require('./cartRoutes');
 const userRoutes = require('./userRoutes');
+const pricesRoutes = require('./pricesRoute');
 
 const router = Router();
 
@@ -14,5 +15,6 @@ router.use('/mercadopago', mercadopagoRoutes);
 router.use('/binancepay', binancepayRoutes);
 router.use('/cart', cartRoutes);
 router.use('/user', userRoutes);
+router.use('/prices', pricesRoutes);
 
 module.exports = router;
