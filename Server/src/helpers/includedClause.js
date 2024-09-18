@@ -1,24 +1,12 @@
-const { Product, License, Review, Cart, Order, User, CartProduct, Variation, ProductVariation } = require("../db");
+const { conn } = require('../db');
 
 const includedClause = (included) => {
-    const allowedIncluded = [
-        { text: 'product', table: Product },
-        { text: 'license', table: License },
-        { text: 'review', table: Review },
-        { text: 'cart', table: Cart },
-        { text: 'order', table: Order },
-        { text: 'user', table: User },
-        { text: 'cartProduct', table: CartProduct },
-        { text: 'variation', table: Variation },
-        { text: 'productVariation', table: ProductVariation }
-    ];
-    
     const selectedIncluded = included.split(',');
 
     const clause = selectedIncluded.map(item => {
-        const found = allowedIncluded.find(({ text }) => text === item);
+        const found = conn.models[item[0].toUpperCase() + item.slice(1)] || null;
         if (found) {
-            return found.table;
+            return found;
         } else {
             return null;
         };

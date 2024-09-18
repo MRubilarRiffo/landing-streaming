@@ -13,20 +13,20 @@ const getProducts = async (req, res) => {
             slug: req.query.slug,
             id: req.query.id
         };
-
-        const where = whereClause(filters)
-
+        
+        const where = whereClause(filters);
+        
         const sortOrder = req.query.sortOrder || 'asc';
         let order = [
             [ 'name' , sortOrder === 'desc' ? 'DESC' : 'ASC' ]
         ];
-
+        
         const allowedFields = [ 'id', 'name', 'description', 'features', 'previousPrice', 'salePrice', 'slug', 'averageRating', 'immediateDelivery', 'image', 'category', 'bulkPrice', 'createdAt', 'updatedAt' ];
         const selectedFields = req.query.fields ? req.query.fields.split(',') : null;
         const attributes = selectedFields && selectedFields.filter(field => allowedFields.includes(field));
-
-        const include = req.query.included ? includedClause(req.query.included) : [];
         
+        const include = req.query.included ? includedClause(req.query.included) : [];
+                
         const props = { where, order, limit, offset, attributes, include };
 
         const { count, rows: products } = await getProducts_h(props);
