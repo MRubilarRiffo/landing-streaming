@@ -1,4 +1,4 @@
-const { getProducts_h } = require("../../handlers/products/getProducts_h");
+const { getProductsFindAll } = require("../../handlers/products/getProductsFindAll");
 const { includedClause } = require("../../helpers/includedClause");
 
 const calculateTotal = async (req, res, next) => {
@@ -25,7 +25,7 @@ const calculateTotal = async (req, res, next) => {
             attributes: [ 'id', 'name', 'salePrice' ]
         };
 
-        const { rows: dataProducts } = await getProducts_h(queryOptions);
+        const { products: dataProducts } = await getProductsFindAll(queryOptions);
 
         if (!dataProducts) {
             const error = new Error('No se encontraron productos.');
