@@ -1,10 +1,11 @@
-const { getProducts_h } = require('../../handlers/products/getProducts_h');
+const { getProductsFindAll } = require('../../handlers/products/getProductsFindAll');
 const { whereClause } = require('../../helpers/whereClause');
 const { includedClause } = require('../../helpers/includedClause');
+const { orderClause } = require('../../helpers/orderClause');
 
 const getProducts = async (req, res) => {
     try {
-        const limit = req.query.limit > 0 ? req.query.limit : 10;
+        const limit = req.query.limit > 0 ? parseInt(req.query.limit) : 10;
         const currentPage = req.query.page > 0 ? req.query.page : 1;
         const offset = (currentPage - 1) * limit;
         
@@ -16,10 +17,8 @@ const getProducts = async (req, res) => {
         
         const where = whereClause(filters);
         
-        const sortOrder = req.query.sortOrder || 'asc';
-        let order = [
-            [ 'name' , sortOrder === 'desc' ? 'DESC' : 'ASC' ]
-        ];
+        const sortOrder = req.query.sortOrder || 'id,asc';
+        let order = orderClause(sortOrder);
         
         const allowedFields = [ 'id', 'name', 'description', 'features', 'previousPrice', 'salePrice', 'slug', 'averageRating', 'immediateDelivery', 'image', 'category', 'bulkPrice', 'createdAt', 'updatedAt' ];
         const selectedFields = req.query.fields ? req.query.fields.split(',') : null;
@@ -27,9 +26,9 @@ const getProducts = async (req, res) => {
         
         const include = req.query.included ? includedClause(req.query.included) : [];
                 
-        const props = { where, order, limit, offset, attributes, include };
+        const queryOptions = { where, order, limit, offset, attributes, include };
 
-        const { count, rows: products } = await getProducts_h(props);
+        const { count, rows: products } = await getProductsFindAll(queryOptions);
 
         if (products.error) {
             return res.status(400).send(products.error);
